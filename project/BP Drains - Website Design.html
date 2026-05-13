@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BP Drains South East — Website Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Archivo+Narrow:wght@600;700&family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #f0eee9; height: 100%; }
+    body { font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    #root { height: 100%; }
+    .dc-section + .dc-section { margin-top: 60px; }
+    /* artboards get their own white surface but bp-root paints its own */
+    [data-dc-slot] .dc-card { background: #ECEAE7; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel pinned -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Starter components -->
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+
+  <!-- BP Drains components & templates -->
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="homepage.jsx"></script>
+  <script type="text/babel" src="templates-1.jsx"></script>
+  <script type="text/babel" src="templates-2.jsx"></script>
+  <script type="text/babel" src="templates-mobile.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    const { useEffect } = React;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "tone": "warm",
+      "density": "comfortable",
+      "typePair": "archivo-plex"
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      // Apply tweak attrs to every .bp-root globally
+      useEffect(() => {
+        document.querySelectorAll('.bp-root').forEach(el => {
+          el.setAttribute('data-tone', t.tone);
+          el.setAttribute('data-density', t.density);
+          el.setAttribute('data-type', t.typePair);
+        });
+      }, [t.tone, t.density, t.typePair]);
+
+      return (
+        <>
+          <DesignCanvas
+            title="BP Drains South East"
+            subtitle="Website redesign · 6 templates · Industrial-premium silver/black + CTA red · For Claude Code handoff">
+
+            <DCSection id="foundations" title="00 · Foundations" subtitle="Tokens, type, icons, components — the shared system">
+              <DCArtboard id="tokens" label="Design tokens · Style guide" width={1280} height={2280}>
+                <FoundationsTokens />
+              </DCArtboard>
+            </DCSection>
+
+            <DCSection id="desktop" title="01 · Templates · Desktop" subtitle="6-template scope · 1280px container · 1440 viewport">
+              <DCArtboard id="home" label="Homepage" width={1440} height={4600}>
+                <HomepageDesktop />
+              </DCArtboard>
+              <DCArtboard id="contact" label="Contact Us" width={1440} height={2200}>
+                <ContactDesktop />
+              </DCArtboard>
+              <DCArtboard id="area" label="Area template · Margate" width={1440} height={3600}>
+                <AreaPageDesktop />
+              </DCArtboard>
+              <DCArtboard id="service" label="Service template · Blocked drains" width={1440} height={4400}>
+                <ServicePageDesktop />
+              </DCArtboard>
+              <DCArtboard id="gallery" label="Gallery" width={1440} height={3000}>
+                <GalleryDesktop />
+              </DCArtboard>
+              <DCArtboard id="testimonials" label="Testimonials" width={1440} height={3400}>
+                <TestimonialsDesktop />
+              </DCArtboard>
+            </DCSection>
+
+            <DCSection id="mobile" title="02 · Templates · Mobile" subtitle="iPhone 14 Pro · 390px · Thumb-reachable Call Now persistent">
+              <DCArtboard id="home-m" label="Homepage" width={390} height={2200}>
+                <HomepageMobile />
+              </DCArtboard>
+              <DCArtboard id="contact-m" label="Contact" width={390} height={1800}>
+                <ContactMobile />
+              </DCArtboard>
+              <DCArtboard id="area-m" label="Area · Margate" width={390} height={1500}>
+                <AreaMobile />
+              </DCArtboard>
+            </DCSection>
+
+          </DesignCanvas>
+
+          <TweaksPanel title="Design tweaks">
+            <TweakSection label="Palette" />
+            <TweakRadio label="Grey tone" value={t.tone}
+              options={[
+                { value: 'warm',  label: 'Warm' },
+                { value: 'cool',  label: 'Cool' },
+                { value: 'steel', label: 'Steel' },
+              ]}
+              onChange={v => setTweak('tone', v)} />
+
+            <TweakSection label="Density" />
+            <TweakRadio label="Spacing" value={t.density}
+              options={[
+                { value: 'compact',      label: 'Compact' },
+                { value: 'comfortable',  label: 'Comfort' },
+                { value: 'spacious',     label: 'Spacious' },
+              ]}
+              onChange={v => setTweak('density', v)} />
+
+            <TweakSection label="Typography" />
+            <TweakSelect label="Type pairing" value={t.typePair}
+              options={[
+                { value: 'archivo-plex',    label: 'Archivo + IBM Plex Sans' },
+                { value: 'manrope-mono',    label: 'Anton + Manrope' },
+                { value: 'grotesk-manrope', label: 'Space Grotesk + Manrope' },
+              ]}
+              onChange={v => setTweak('typePair', v)} />
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

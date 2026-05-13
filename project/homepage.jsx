@@ -1,0 +1,437 @@
+// homepage.jsx — BP Drains Homepage template (desktop)
+// Sections in order:
+//   1. Hero — split layout, large van photo, dual CTA
+//   2. Trust strip — accreditations (expandable)
+//   3. Services grid (icons restyled grey/black)
+//   4. Local proof — van fleet + areas covered
+//   5. Process / how we work
+//   6. Testimonials snippet
+//   7. Gallery preview (before/after)
+//   8. CTA band — emergency
+//   9. Footer (handled outside)
+
+function HomepageDesktop() {
+  return (
+    <div className="bp-root" data-screen-label="Homepage / Desktop" data-tone="warm" data-density="comfortable">
+      <UtilityBar />
+      <SiteHeader active="" />
+
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <section style={{
+        background: 'var(--bp-stone-100)',
+        position: 'relative',
+        borderBottom: '1px solid var(--bp-line)',
+      }}>
+        <div style={{
+          maxWidth: 'var(--bp-container)', margin: '0 auto',
+          padding: '64px var(--bp-gutter) 0',
+          position: 'relative',
+        }}>
+          {/* registration corners */}
+          <span className="bp-reg" style={{ position: 'absolute', top: 16, left: 'var(--bp-gutter)' }}>BP·SE / HOMEPAGE / 01</span>
+          <span className="bp-reg" style={{ position: 'absolute', top: 16, right: 'var(--bp-gutter)' }}>KENT · SOUTH EAST · UK</span>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: 48, alignItems: 'end' }}>
+            <div>
+              <Eyebrow index="01 / 09" label="Local drainage · Family run · Since 2009" />
+              <h1 style={{
+                fontSize: 'var(--bp-fs-hero)', fontWeight: 900,
+                marginTop: 24, letterSpacing: '-0.035em', lineHeight: 0.95,
+              }}>
+                Blocked drain?<br/>
+                <span style={{ color: 'var(--bp-stone-500)' }}>We'll be there</span><br/>
+                in 60&nbsp;minutes.
+              </h1>
+              <p style={{
+                marginTop: 28, fontSize: 19, lineHeight: 1.55,
+                color: 'var(--bp-stone-600)', maxWidth: 520,
+              }}>
+                Six vans, six fully-trained engineers, working across Kent and the South East.
+                We turn up when we say we will, fix it properly, and tell you exactly what it cost — no surprises.
+              </p>
+
+              <div style={{ marginTop: 36, display: 'flex', gap: 12, alignItems: 'center' }}>
+                <a className="bp-btn bp-btn--cta bp-btn--lg" href={BP_PHONE_TEL}>
+                  <Icon name="phone" size={18} stroke="#fff" />
+                  Call {BP_PHONE}
+                </a>
+                <a className="bp-btn bp-btn--ghost bp-btn--lg" href="#quote">
+                  Get a free quote
+                  <Icon name="arrow" size={16} />
+                </a>
+              </div>
+
+              {/* meta strip */}
+              <div style={{
+                marginTop: 48, paddingTop: 24,
+                borderTop: '1px solid var(--bp-line-strong)',
+                display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24,
+              }}>
+                {[
+                  { v: '47 min', l: 'Avg. on-site, Kent' },
+                  { v: '6 vans', l: 'On the road today' },
+                  { v: '4.9★', l: '218 Google reviews' },
+                  { v: '24/7', l: 'Emergency callout' },
+                ].map(s => (
+                  <div key={s.l}>
+                    <div style={{
+                      fontFamily: 'var(--bp-font-display)', fontWeight: 800,
+                      fontSize: 28, lineHeight: 1, letterSpacing: '-0.02em',
+                    }}>{s.v}</div>
+                    <div className="bp-mono" style={{ marginTop: 6 }}>{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Hero imagery — large van photo with overlaid card */}
+            <div style={{ position: 'relative', height: 580, marginRight: 'calc(var(--bp-gutter) * -1)' }}>
+              <ImageSlot
+                label="HERO PHOTO — full team in front of 6-van fleet · supply"
+                style={{ position: 'absolute', inset: 0, height: '100%', borderRadius: 0 }}
+                dark
+                accent
+              />
+              {/* badge */}
+              <div style={{
+                position: 'absolute', top: 24, left: 24,
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                background: '#fff', padding: '8px 12px', borderRadius: 2,
+                fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em',
+                textTransform: 'uppercase', fontWeight: 600,
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#3DBA6E' }} />
+                Live · 3 jobs in progress
+              </div>
+              {/* floating quote card */}
+              <div style={{
+                position: 'absolute', left: 24, bottom: 24, right: 96,
+                background: '#fff', padding: '20px 24px',
+                borderLeft: '4px solid var(--bp-red)',
+                borderRadius: 2,
+                boxShadow: 'var(--bp-shadow-md)',
+              }}>
+                <div className="bp-stars">★ ★ ★ ★ ★</div>
+                <p style={{ marginTop: 8, fontSize: 15, lineHeight: 1.4 }}>
+                  "Called at 11pm with a kitchen drain backing up. Lewis was here by midnight,
+                  cleared it in 40 minutes, and the price was exactly what he quoted. Lifesavers."
+                </p>
+                <div style={{ marginTop: 10, fontFamily: 'var(--bp-font-mono)', fontSize: 11,
+                  letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--bp-fg-muted)' }}>
+                  Sarah M · Whitstable · Google review · 12 Apr 2026
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ACCREDITATIONS STRIP ─────────────────────────────────────── */}
+      <section style={{ background: 'var(--bp-white)', padding: '40px var(--bp-gutter)', borderBottom: '1px solid var(--bp-line)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+            <Eyebrow index="02 / 09" label="Accreditations & partners · Tap to expand" />
+            <a href="#" style={{
+              fontFamily: 'var(--bp-font-mono)', fontSize: 12, letterSpacing: '0.08em',
+              textTransform: 'uppercase', color: 'var(--bp-fg-muted)',
+            }}>See all 12 →</a>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12 }}>
+            <AccreditChip name="Checkatrade" sub="Vetted member" mark="✓" />
+            <AccreditChip name="WaterSafe" sub="Approved contractor" mark="WS" />
+            <AccreditChip name="NADC" sub="Drainage assoc." mark="N" />
+            <AccreditChip name="Trustpilot" sub="4.9 / 5 · 312 rev." mark="★" />
+            <AccreditChip name="DBS Checked" sub="All engineers" mark="✓" />
+            <AccreditChip name="Public Liability" sub="£5m cover" mark="£" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ─────────────────────────────────────────────────── */}
+      <section style={{ background: 'var(--bp-stone-100)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'end', marginBottom: 56 }}>
+            <div>
+              <Eyebrow index="03 / 09" label="What we do" />
+              <h2 style={{ marginTop: 20, maxWidth: 540 }}>Every drainage job, end to end.</h2>
+            </div>
+            <p style={{ color: 'var(--bp-stone-600)', fontSize: 17, lineHeight: 1.5, maxWidth: 480 }}>
+              From a blocked sink on a Tuesday to a full sewer relining project — same team, same vans,
+              same straight pricing.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: 'var(--bp-line)', border: '1px solid var(--bp-line)' }}>
+            {[
+              { icon: 'blocked', name: 'Blocked drains', sub: 'Domestic & commercial', desc: 'Sinks, toilets, gullies, manholes — cleared fast, fixed properly.' },
+              { icon: 'cctv',    name: 'CCTV surveys',   sub: 'WinCan reports',         desc: 'High-def survey footage, faults marked, written report next day.' },
+              { icon: 'repair',  name: 'Drain repairs',  sub: 'Excavation & lining',    desc: 'Collapsed pipes, root damage, displaced joints — fixed first time.' },
+              { icon: 'jetting', name: 'High-pressure jetting', sub: 'Up to 4000 psi',  desc: 'Scale, grease and root cutting on commercial runs.' },
+              { icon: 'tanker',  name: 'Tanker services', sub: '3000 gal capacity',     desc: 'Septic emptying, interceptors, flooded basements — pumped out.' },
+              { icon: 'sewer',   name: 'Sewer relining',  sub: 'No-dig repair',         desc: 'Patch and full-length CIPP relining for sewer & lateral pipes.' },
+              { icon: 'septic',  name: 'Septic tanks',    sub: 'Install & service',     desc: 'New installs, regular maintenance and pre-sale surveys.' },
+              { icon: 'soakaway',name: 'Soakaways',       sub: 'Design & build',        desc: 'Surface water solutions and replacement soakaway crates.' },
+            ].map((s, i) => (
+              <ServiceCard key={s.name} {...s} index={i + 1} />
+            ))}
+          </div>
+
+          <div style={{ marginTop: 32, display: 'flex', justifyContent: 'flex-end' }}>
+            <a href="#" className="bp-btn bp-btn--ghost">All services <Icon name="arrow" size={14} /></a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── LOCAL PROOF — FLEET + AREAS ──────────────────────────────── */}
+      <section style={{ background: 'var(--bp-ink)', color: '#fff', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
+            <div>
+              <Eyebrow index="04 / 09" label="The fleet" onDark />
+              <h2 style={{ color: '#fff', marginTop: 20 }}>Six vans. One team. <br />Kent through and through.</h2>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 17, lineHeight: 1.55, marginTop: 20, maxWidth: 480 }}>
+                You don't get a sub-contractor. You get one of six BP Drains vans, kitted out with everything
+                we need to finish the job on the first visit — jetters, rods, CCTV crawler, repair kit, the lot.
+              </p>
+
+              <div style={{ marginTop: 36, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: 'rgba(255,255,255,0.1)' }}>
+                {[
+                  { l: 'VAN 01', n: 'Lewis P.', area: 'North Kent · Thanet' },
+                  { l: 'VAN 02', n: 'Mark T.', area: 'Canterbury · Ashford' },
+                  { l: 'VAN 03', n: 'Dan R.', area: 'Dover · Folkestone' },
+                  { l: 'VAN 04', n: 'Jack S.', area: 'Whitstable · Herne Bay' },
+                  { l: 'VAN 05', n: 'Connor B.', area: 'Faversham · Sittingbourne' },
+                  { l: 'VAN 06', n: 'Aaron W.', area: 'Margate · Ramsgate' },
+                ].map(v => (
+                  <div key={v.l} style={{ background: 'var(--bp-ink)', padding: '16px 18px' }}>
+                    <div style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.45)' }}>{v.l}</div>
+                    <div style={{ fontWeight: 600, marginTop: 4 }}>{v.n}</div>
+                    <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>{v.area}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <ImageSlot
+                label="6-VAN FLEET LINE-UP · livery shot · supply"
+                style={{ height: 360 }}
+                dark
+              />
+              <div style={{
+                marginTop: 16, padding: '24px 0',
+                borderTop: '1px solid rgba(255,255,255,0.12)',
+                borderBottom: '1px solid rgba(255,255,255,0.12)',
+              }}>
+                <div className="bp-mono" style={{ color: 'rgba(255,255,255,0.55)' }}>Where we work · 11 core towns</div>
+                <div style={{ marginTop: 16, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  {BP_AREAS.map(a => (
+                    <a key={a} href="#" style={{
+                      padding: '8px 14px',
+                      border: '1px solid rgba(255,255,255,0.2)',
+                      borderRadius: 999,
+                      fontSize: 13, color: '#fff',
+                    }}>{a}</a>
+                  ))}
+                  <a href="#" style={{
+                    padding: '8px 14px',
+                    background: 'rgba(255,255,255,0.1)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    borderRadius: 999,
+                    fontSize: 13, color: '#fff', fontWeight: 600,
+                  }}>+ everywhere CT, ME, TN postcodes</a>
+                </div>
+              </div>
+              <div style={{ marginTop: 24, display: 'flex', gap: 12 }}>
+                <a href="#" className="bp-btn bp-btn--cta">
+                  <Icon name="phone" size={14} stroke="#fff" /> {BP_PHONE}
+                </a>
+                <a href="#" className="bp-btn" style={{ background: '#fff', color: 'var(--bp-ink)' }}>
+                  Browse coverage map <Icon name="arrow" size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESS ──────────────────────────────────────────────────── */}
+      <section style={{ background: 'var(--bp-white)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <Eyebrow index="05 / 09" label="How we work" />
+          <h2 style={{ marginTop: 20, maxWidth: 760 }}>No surprise costs. No "we'll need to come back". <br />Just four steps.</h2>
+
+          <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, position: 'relative' }}>
+            <div style={{ position: 'absolute', top: 16, left: '12.5%', right: '12.5%', height: 1, background: 'var(--bp-line-strong)' }} />
+            {[
+              { n: '01', t: 'You call', d: 'Tell us what\'s happening. We give you a window — almost always same day, often same hour.' },
+              { n: '02', t: 'We turn up', d: 'A BP Drains van, in livery, with the right kit on board. We text you when we\'re 10 minutes out.' },
+              { n: '03', t: 'We diagnose', d: 'CCTV if needed. We show you what we found, on the spot. Then we tell you the fixed price.' },
+              { n: '04', t: 'We fix it', d: 'Clear it, repair it, line it. Same day where possible. You pay only after the job\'s done.' },
+            ].map(p => (
+              <div key={p.n} style={{ paddingRight: 24, position: 'relative' }}>
+                <div style={{
+                  width: 32, height: 32, borderRadius: '50%',
+                  background: 'var(--bp-ink)', color: '#fff',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: 'var(--bp-font-mono)', fontSize: 12, fontWeight: 600,
+                  position: 'relative', zIndex: 1,
+                }}>{p.n}</div>
+                <h4 style={{ marginTop: 24 }}>{p.t}</h4>
+                <p style={{ marginTop: 12, color: 'var(--bp-stone-600)', fontSize: 15, lineHeight: 1.5 }}>{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS SNIPPET ─────────────────────────────────────── */}
+      <section style={{ background: 'var(--bp-stone-100)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', marginBottom: 48 }}>
+            <div>
+              <Eyebrow index="06 / 09" label="What our customers say" />
+              <h2 style={{ marginTop: 20 }}>312 reviews. 4.9 average. <br />Read them all.</h2>
+            </div>
+            <a href="#" className="bp-btn bp-btn--ghost">All testimonials <Icon name="arrow" size={14} /></a>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            {[
+              { src: 'Google', date: '04 Apr 2026', name: 'James H.', area: 'Canterbury', text: '"Diagnosed the issue with a CCTV survey within 20 minutes, told us exactly what the repair would cost, and had it done by the next afternoon. Old-school proper service."' },
+              { src: 'Trustpilot', date: '28 Mar 2026', name: 'Priya N.', area: 'Margate', text: '"They picked up the phone at 7am on a Sunday. Aaron was here by 9. Polite, tidy, explained everything in plain English. Will use again — and recommend."' },
+              { src: 'Facebook', date: '15 Mar 2026', name: 'Robert C.', area: 'Folkestone', text: '"Quoted half what a national company tried to charge me. Same job, done properly. Local lads who clearly know what they\'re doing."' },
+            ].map(t => (
+              <TestimonialCard key={t.name} {...t} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── GALLERY PREVIEW ──────────────────────────────────────────── */}
+      <section style={{ background: 'var(--bp-white)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', marginBottom: 48 }}>
+            <div>
+              <Eyebrow index="07 / 09" label="On the job · Real photos" />
+              <h2 style={{ marginTop: 20 }}>Honest work. Including the messy bits.</h2>
+            </div>
+            <a href="#" className="bp-btn bp-btn--ghost">Full gallery <Icon name="arrow" size={14} /></a>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+            {[
+              { l: 'BEFORE · Root ingress · CCTV still', tag: 'CCTV', dark: true },
+              { l: 'AFTER · No-dig liner installed', tag: 'REPAIR' },
+              { l: 'BEFORE · Collapsed clay pipe, Ashford', tag: 'EXCAVATION', dark: true },
+              { l: 'AFTER · New 110mm pipe + bedding', tag: 'EXCAVATION' },
+              { l: 'BEFORE · Grease build-up · restaurant', tag: 'JETTING', dark: true },
+              { l: 'AFTER · Cleared with 3000psi jet', tag: 'JETTING' },
+              { l: 'Tanker job, Whitstable Marina', tag: 'TANKER' },
+              { l: 'Manhole locate · Ramsgate', tag: 'SURVEY' },
+            ].map((it, i) => (
+              <div key={i} style={{ position: 'relative' }}>
+                <ImageSlot label={it.l} dark={it.dark} style={{ height: 200 }} />
+                <span style={{
+                  position: 'absolute', top: 10, left: 10,
+                  fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,
+                  letterSpacing: '0.12em', padding: '4px 8px', borderRadius: 2,
+                  background: '#fff', color: 'var(--bp-ink)',
+                }}>{it.tag}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── EMERGENCY CTA BAND ───────────────────────────────────────── */}
+      <section style={{
+        background: 'var(--bp-red)', color: '#fff',
+        padding: '64px var(--bp-gutter)',
+      }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 48 }}>
+          <div>
+            <div style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.85 }}>
+              24 / 7 · 365 · NO WEEKEND SURCHARGE
+            </div>
+            <div style={{ fontFamily: 'var(--bp-font-display)', fontWeight: 900, fontSize: 56, marginTop: 8, letterSpacing: '-0.025em', lineHeight: 1 }}>
+              Drain emergency? Call us right now.
+            </div>
+          </div>
+          <a href={BP_PHONE_TEL} style={{
+            background: '#fff', color: 'var(--bp-ink)',
+            padding: '28px 36px', borderRadius: 2,
+            display: 'inline-flex', alignItems: 'center', gap: 16,
+            fontFamily: 'var(--bp-font-display)', fontWeight: 800, fontSize: 32,
+            letterSpacing: '-0.02em', whiteSpace: 'nowrap',
+          }}>
+            <Icon name="phone" size={28} />
+            {BP_PHONE}
+          </a>
+        </div>
+      </section>
+
+      <SiteFooter />
+      <FloatingCTAs />
+    </div>
+  );
+}
+
+function ServiceCard({ icon, name, sub, desc, index }) {
+  return (
+    <div style={{
+      background: 'var(--bp-white)', padding: '32px 28px',
+      display: 'flex', flexDirection: 'column', gap: 16,
+      cursor: 'pointer', transition: 'background .15s',
+      position: 'relative',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{
+          width: 48, height: 48,
+          background: 'var(--bp-stone-100)',
+          border: '1px solid var(--bp-line-strong)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          borderRadius: 'var(--bp-r-1)',
+        }}>
+          <Icon name={icon} size={24} stroke="var(--bp-ink)" />
+        </div>
+        <span style={{
+          fontFamily: 'var(--bp-font-mono)', fontSize: 11,
+          letterSpacing: '0.12em', color: 'var(--bp-fg-faint)',
+        }}>{String(index).padStart(2, '0')}</span>
+      </div>
+      <div>
+        <h4>{name}</h4>
+        <div className="bp-mono" style={{ marginTop: 6 }}>{sub}</div>
+      </div>
+      <p style={{ color: 'var(--bp-stone-600)', fontSize: 14, lineHeight: 1.5, flex: 1 }}>{desc}</p>
+      <a href="#" style={{
+        display: 'inline-flex', alignItems: 'center', gap: 6,
+        fontSize: 13, fontWeight: 600,
+      }}>Learn more <Icon name="arrow" size={14} /></a>
+    </div>
+  );
+}
+
+function TestimonialCard({ src, date, name, area, text }) {
+  return (
+    <div className="bp-card" style={{ padding: 28, display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span style={{
+          fontFamily: 'var(--bp-font-mono)', fontSize: 11, fontWeight: 600,
+          letterSpacing: '0.12em', textTransform: 'uppercase',
+          background: 'var(--bp-stone-100)', padding: '4px 8px', borderRadius: 2,
+        }}>{src}</span>
+        <span style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 11, color: 'var(--bp-fg-faint)' }}>{date}</span>
+      </div>
+      <div className="bp-stars">★ ★ ★ ★ ★</div>
+      <p style={{ fontSize: 15, lineHeight: 1.55, flex: 1 }}>{text}</p>
+      <div style={{ paddingTop: 16, borderTop: '1px solid var(--bp-line)' }}>
+        <div style={{ fontWeight: 600, fontSize: 14 }}>{name}</div>
+        <div className="bp-mono" style={{ marginTop: 2 }}>{area}</div>
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { HomepageDesktop, ServiceCard, TestimonialCard });

@@ -1,0 +1,244 @@
+/* BP Drains South East — Design Tokens
+   Industrial-premium aesthetic: warm stone neutrals, near-black structure, red reserved for CTAs.
+   Tokens are exposed as CSS custom properties; Tweaks panel rewrites the palette / type / density groups.
+*/
+
+:root {
+  /* --- COLOR · neutrals (warm stone, default tone) --- */
+  --bp-stone-50:  #F6F5F2;
+  --bp-stone-100: #ECEAE7;   /* page surface */
+  --bp-stone-200: #D9D6D1;   /* cards, dividers */
+  --bp-stone-300: #B8B3AB;
+  --bp-stone-400: #8E8780;
+  --bp-stone-500: #6E6A65;   /* secondary text */
+  --bp-stone-600: #4D4944;
+  --bp-stone-700: #2F2C28;
+  --bp-ink:       #0E0D0B;   /* primary text / structure */
+  --bp-white:     #FFFFFF;
+
+  /* --- COLOR · CTA red (reserved — never decorative) --- */
+  --bp-red:       #C8102E;
+  --bp-red-dark:  #A50D25;
+  --bp-red-tint:  rgba(200, 16, 46, 0.08);
+
+  /* --- COLOR · semantic --- */
+  --bp-bg:        var(--bp-stone-100);
+  --bp-bg-alt:    var(--bp-stone-50);
+  --bp-bg-dark:   var(--bp-ink);
+  --bp-fg:        var(--bp-ink);
+  --bp-fg-muted:  var(--bp-stone-500);
+  --bp-fg-faint:  var(--bp-stone-400);
+  --bp-line:      var(--bp-stone-200);
+  --bp-line-strong: var(--bp-stone-300);
+
+  /* --- TYPE families --- */
+  --bp-font-display: 'Archivo', 'Inter Tight', system-ui, sans-serif;
+  --bp-font-body:    'IBM Plex Sans', 'Inter', system-ui, sans-serif;
+  --bp-font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* --- TYPE scale (desktop) --- */
+  --bp-fs-hero:   88px;   /* H1 hero */
+  --bp-fs-h1:     56px;
+  --bp-fs-h2:     40px;
+  --bp-fs-h3:     28px;
+  --bp-fs-h4:     20px;
+  --bp-fs-body:   17px;
+  --bp-fs-small:  14px;
+  --bp-fs-mono:   12px;   /* specs / labels */
+  --bp-fs-meta:   11px;   /* registration marks */
+
+  /* --- SPACING scale (comfortable density default) --- */
+  --bp-s-1: 4px;
+  --bp-s-2: 8px;
+  --bp-s-3: 12px;
+  --bp-s-4: 16px;
+  --bp-s-5: 24px;
+  --bp-s-6: 32px;
+  --bp-s-7: 48px;
+  --bp-s-8: 64px;
+  --bp-s-9: 96px;
+  --bp-s-10: 128px;
+
+  --bp-section-y: 96px;       /* vertical breathing between page sections */
+  --bp-container: 1280px;     /* desktop max-width */
+  --bp-gutter: 48px;          /* page edge gutter */
+
+  /* --- RADII (kept tight for industrial feel) --- */
+  --bp-r-1: 2px;
+  --bp-r-2: 4px;
+  --bp-r-3: 8px;
+  --bp-r-pill: 999px;
+
+  /* --- SHADOWS (used sparingly) --- */
+  --bp-shadow-sm: 0 1px 0 rgba(14, 13, 11, 0.06);
+  --bp-shadow-md: 0 2px 16px rgba(14, 13, 11, 0.08);
+  --bp-shadow-lg: 0 12px 40px rgba(14, 13, 11, 0.14);
+  --bp-shadow-cta: 0 6px 20px rgba(200, 16, 46, 0.30);
+}
+
+/* Density variants — Tweaks panel toggles data-density on .bp-root */
+.bp-root[data-density="compact"]  { --bp-section-y: 64px;  --bp-gutter: 32px; }
+.bp-root[data-density="comfortable"] { --bp-section-y: 96px;  --bp-gutter: 48px; }
+.bp-root[data-density="spacious"] { --bp-section-y: 144px; --bp-gutter: 72px; }
+
+/* Grey tone variants */
+.bp-root[data-tone="warm"] {
+  --bp-stone-50:  #F6F5F2;
+  --bp-stone-100: #ECEAE7;
+  --bp-stone-200: #D9D6D1;
+  --bp-stone-500: #6E6A65;
+}
+.bp-root[data-tone="cool"] {
+  --bp-stone-50:  #F4F5F6;
+  --bp-stone-100: #E8E8EA;
+  --bp-stone-200: #D2D3D6;
+  --bp-stone-500: #6B6B70;
+}
+.bp-root[data-tone="steel"] {
+  --bp-stone-50:  #EFF0F1;
+  --bp-stone-100: #DEE0E2;
+  --bp-stone-200: #C2C5C8;
+  --bp-stone-500: #5F6266;
+}
+
+/* Type pair variants */
+.bp-root[data-type="archivo-plex"]   { --bp-font-display: 'Archivo', system-ui, sans-serif;     --bp-font-body: 'IBM Plex Sans', system-ui, sans-serif; }
+.bp-root[data-type="manrope-mono"]   { --bp-font-display: 'Anton', 'Archivo Narrow', system-ui; --bp-font-body: 'Manrope', system-ui, sans-serif; }
+.bp-root[data-type="grotesk-manrope"]{ --bp-font-display: 'Space Grotesk', system-ui, sans-serif; --bp-font-body: 'Manrope', system-ui, sans-serif; }
+
+/* --- Base layer for every template ---------------------------------------- */
+.bp-root {
+  font-family: var(--bp-font-body);
+  color: var(--bp-fg);
+  background: var(--bp-bg);
+  font-size: var(--bp-fs-body);
+  line-height: 1.5;
+  font-feature-settings: 'ss01', 'cv01';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.bp-root *, .bp-root *::before, .bp-root *::after { box-sizing: border-box; }
+
+.bp-root h1, .bp-root h2, .bp-root h3, .bp-root h4 {
+  font-family: var(--bp-font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+  color: var(--bp-ink);
+}
+.bp-root h1 { font-size: var(--bp-fs-h1); }
+.bp-root h2 { font-size: var(--bp-fs-h2); }
+.bp-root h3 { font-size: var(--bp-fs-h3); }
+.bp-root h4 { font-size: var(--bp-fs-h4); }
+
+.bp-root p { margin: 0; }
+.bp-root a { color: inherit; text-decoration: none; }
+
+/* Monospace eyebrow / label */
+.bp-mono {
+  font-family: var(--bp-font-mono);
+  font-size: var(--bp-fs-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bp-fg-muted);
+}
+
+/* Registration corner marks (used on hero / section dividers) */
+.bp-reg {
+  font-family: var(--bp-font-mono);
+  font-size: var(--bp-fs-meta);
+  letter-spacing: 0.1em;
+  color: var(--bp-fg-faint);
+  text-transform: uppercase;
+}
+
+/* Section wrapper */
+.bp-section {
+  padding: var(--bp-section-y) var(--bp-gutter);
+}
+.bp-container {
+  max-width: var(--bp-container);
+  margin: 0 auto;
+}
+
+/* ---------- Buttons ------------------------------------------------------- */
+.bp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 24px;
+  border: 1.5px solid transparent;
+  border-radius: var(--bp-r-2);
+  font-family: var(--bp-font-body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform .1s, background .15s, border-color .15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.bp-btn:active { transform: translateY(1px); }
+
+.bp-btn--cta {
+  background: var(--bp-red);
+  color: var(--bp-white);
+  box-shadow: var(--bp-shadow-cta);
+}
+.bp-btn--cta:hover { background: var(--bp-red-dark); }
+
+.bp-btn--ghost {
+  background: transparent;
+  color: var(--bp-ink);
+  border-color: var(--bp-ink);
+}
+.bp-btn--ghost:hover { background: var(--bp-ink); color: var(--bp-white); }
+
+.bp-btn--dark {
+  background: var(--bp-ink);
+  color: var(--bp-white);
+}
+.bp-btn--dark:hover { background: var(--bp-stone-700); }
+
+.bp-btn--sm { height: 42px; padding: 0 16px; font-size: 13px; }
+.bp-btn--lg { height: 64px; padding: 0 32px; font-size: 17px; }
+
+/* ---------- Form fields --------------------------------------------------- */
+.bp-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--bp-ink);
+  background: var(--bp-white);
+  border: 1px solid var(--bp-line-strong);
+  border-radius: var(--bp-r-2);
+  outline: none;
+  transition: border-color .15s;
+}
+.bp-input:focus { border-color: var(--bp-ink); }
+.bp-textarea { min-height: 140px; padding: 16px; height: auto; }
+
+.bp-label {
+  display: block;
+  font-family: var(--bp-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bp-fg-muted);
+  margin-bottom: 8px;
+}
+
+/* ---------- Generic card -------------------------------------------------- */
+.bp-card {
+  background: var(--bp-white);
+  border: 1px solid var(--bp-line);
+  border-radius: var(--bp-r-2);
+}
+
+/* Star rating */
+.bp-stars { color: var(--bp-ink); letter-spacing: 2px; font-size: 14px; }
