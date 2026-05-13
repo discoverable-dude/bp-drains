@@ -63,10 +63,10 @@ export default function HomePage() {
         borderBottom: '1px solid var(--bp-line)',
       }}>
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto', padding: '64px var(--bp-gutter) 0' }}>
-          <div className="hero-split">
+          <div className="hero-split" style={{ alignItems: 'stretch' }}>
 
             {/* Left */}
-            <div style={{ paddingBottom: 64 }}>
+            <div style={{ paddingBottom: 64, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 background: 'var(--bp-white)', border: '1px solid var(--bp-line-strong)',
