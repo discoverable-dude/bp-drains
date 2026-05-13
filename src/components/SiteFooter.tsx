@@ -41,8 +41,15 @@ export default function SiteFooter() {
 
           <FooterCol title="Services">
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {['Blocked drains', 'CCTV surveys', 'Drain repairs', 'High-pressure jetting', 'Tanker services', 'Sewer relining'].map(s => (
-                <li key={s}><Link href="/services/blocked-drains" style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>{s}</Link></li>
+              {[
+                { label: 'Blocked drains',        slug: 'blocked-drains' },
+                { label: 'CCTV surveys',           slug: 'cctv-drain-surveys' },
+                { label: 'Drain repairs',          slug: 'drain-repairs' },
+                { label: 'Drain lining',           slug: 'drain-lining' },
+                { label: 'Emergency drainage',     slug: 'emergency-drainage' },
+                { label: 'Gutter cleaning',        slug: 'gutter-cleaning' },
+              ].map(s => (
+                <li key={s.slug}><Link href={`/services/${s.slug}`} style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>{s.label}</Link></li>
               ))}
             </ul>
           </FooterCol>
@@ -50,7 +57,7 @@ export default function SiteFooter() {
           <FooterCol title="Areas">
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {BP_AREAS.slice(0, 8).map(a => (
-                <li key={a}><Link href={`/areas/${a.toLowerCase()}`} style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>{a}</Link></li>
+                <li key={a}><Link href={`/areas/${a.toLowerCase().replace(/\s+/g, '-')}`} style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>{a}</Link></li>
               ))}
             </ul>
           </FooterCol>

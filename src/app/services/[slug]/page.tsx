@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 import { notFound } from 'next/navigation';
+import MarkdownBody from '@/components/MarkdownBody';
 import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
@@ -113,9 +113,7 @@ export default async function ServicePage({ params }: { params: Params }) {
                   </a>
                 </div>
               </div>
-              <div className="bp-prose">
-                <ReactMarkdown>{service.body}</ReactMarkdown>
-              </div>
+              <MarkdownBody content={service.body} />
             </div>
           </div>
         </section>

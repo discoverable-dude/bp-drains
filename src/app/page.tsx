@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 };
 
 const SERVICES = [
-  { icon: 'blocked', name: 'Blocked drains',       sub: 'Domestic & commercial', desc: 'Sinks, toilets, gullies, manholes — cleared fast, fixed properly.' },
-  { icon: 'cctv',    name: 'CCTV surveys',          sub: 'WinCan reports',        desc: 'High-def survey footage, faults marked, written report next day.' },
-  { icon: 'repair',  name: 'Drain repairs',         sub: 'Excavation & lining',   desc: 'Collapsed pipes, root damage, displaced joints — fixed first time.' },
-  { icon: 'jetting', name: 'High-pressure jetting', sub: 'Up to 4000 psi',        desc: 'Scale, grease and root cutting on commercial runs.' },
-  { icon: 'tanker',  name: 'Tanker services',       sub: '3000 gal capacity',     desc: 'Septic emptying, interceptors, flooded basements — pumped out.' },
-  { icon: 'sewer',   name: 'Sewer relining',        sub: 'No-dig repair',         desc: 'Patch and full-length CIPP relining for sewer & lateral pipes.' },
-  { icon: 'septic',  name: 'Septic tanks',          sub: 'Install & service',     desc: 'New installs, regular maintenance and pre-sale surveys.' },
-  { icon: 'soakaway',name: 'Soakaways',             sub: 'Design & build',        desc: 'Surface water solutions and replacement soakaway crates.' },
+  { icon: 'blocked',  name: 'Blocked drains',       slug: 'blocked-drains',         sub: 'Domestic & commercial', desc: 'Sinks, toilets, gullies, manholes — cleared fast, fixed properly.' },
+  { icon: 'cctv',     name: 'CCTV surveys',          slug: 'cctv-drain-surveys',     sub: 'WinCan reports',        desc: 'High-def survey footage, faults marked, written report next day.' },
+  { icon: 'repair',   name: 'Drain repairs',         slug: 'drain-repairs',          sub: 'Excavation & lining',   desc: 'Collapsed pipes, root damage, displaced joints — fixed first time.' },
+  { icon: 'jetting',  name: 'High-pressure jetting', slug: 'emergency-drainage',     sub: 'Up to 4000 psi',        desc: 'Scale, grease and root cutting on commercial runs.' },
+  { icon: 'tanker',   name: 'Tanker services',       slug: 'emergency-drainage',     sub: '3000 gal capacity',     desc: 'Septic emptying, interceptors, flooded basements — pumped out.' },
+  { icon: 'sewer',    name: 'Sewer relining',        slug: 'drain-lining',           sub: 'No-dig repair',         desc: 'Patch and full-length CIPP relining for sewer & lateral pipes.' },
+  { icon: 'septic',   name: 'Septic tanks',          slug: 'drain-repairs',          sub: 'Install & service',     desc: 'New installs, regular maintenance and pre-sale surveys.' },
+  { icon: 'soakaway', name: 'Soakaways',             slug: 'drain-repairs',          sub: 'Design & build',        desc: 'Surface water solutions and replacement soakaway crates.' },
 ];
 
 const VANS = [
@@ -237,7 +237,7 @@ export default function HomePage() {
                   <div className="bp-mono" style={{ marginTop: 6 }}>{s.sub}</div>
                 </div>
                 <p style={{ color: 'var(--bp-stone-600)', fontSize: 14, lineHeight: 1.5, flex: 1 }}>{s.desc}</p>
-                <Link href="/services/blocked-drains" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600 }}>
+                <Link href={`/services/${s.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600 }}>
                   Learn more <Icon name="arrow" size={14} />
                 </Link>
               </div>
@@ -246,7 +246,7 @@ export default function HomePage() {
 
           <div style={{ marginTop: 32, display: 'flex', justifyContent: 'flex-end' }}>
             <Link href="/services/blocked-drains" className="bp-btn bp-btn--ghost">
-              All services <Icon name="arrow" size={14} />
+              View all services <Icon name="arrow" size={14} />
             </Link>
           </div>
         </div>
