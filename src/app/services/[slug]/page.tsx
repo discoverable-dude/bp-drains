@@ -22,9 +22,16 @@ const PROCESS_STEPS = [
 
 type Params = Promise<{ slug: string }>;
 
+export const dynamicParams = true;
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
-  const services = await getAllServices();
-  return services.map((s: { slug: { current: string } }) => ({ slug: s.slug.current }));
+  try {
+    const services = await getAllServices();
+    return services.map((s: { slug: { current: string } }) => ({ slug: s.slug.current }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {

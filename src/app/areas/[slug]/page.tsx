@@ -25,9 +25,16 @@ const AREA_SERVICES = [
 
 type Params = Promise<{ slug: string }>;
 
+export const dynamicParams = true;
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
-  const areas = await getAllAreas();
-  return areas.map((a: { slug: { current: string } }) => ({ slug: a.slug.current }));
+  try {
+    const areas = await getAllAreas();
+    return areas.map((a: { slug: { current: string } }) => ({ slug: a.slug.current }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
