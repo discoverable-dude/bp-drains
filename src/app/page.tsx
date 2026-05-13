@@ -60,35 +60,15 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section style={{
         background: 'var(--bp-stone-100)',
-        position: 'relative',
         borderBottom: '1px solid var(--bp-line)',
       }}>
-        <div style={{
-          maxWidth: 'var(--bp-container)', margin: '0 auto',
-          padding: '64px var(--bp-gutter) 0',
-          position: 'relative',
-        }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto', padding: '64px var(--bp-gutter) 0' }}>
           <div className="hero-split">
-            <div>
-              <h1 style={{
-                fontSize: 'var(--bp-fs-hero)', fontWeight: 900,
-                letterSpacing: '-0.035em', lineHeight: 0.95,
-              }}>
-                Blocked drain?<br />
-                <span style={{ color: 'var(--bp-stone-500)' }}>We&apos;ll be there</span><br />
-                in{' '}
-                <span style={{ position: 'relative', display: 'inline-block' }}>
-                  60&nbsp;minutes
-                  <svg aria-hidden viewBox="0 0 340 88" fill="none"
-                    style={{ position: 'absolute', top: '-15%', left: '-4%', width: '108%', height: '130%', pointerEvents: 'none', overflow: 'visible' }}>
-                    <path d="M12,44 C18,8 84,2 170,5 C256,8 322,18 326,46 C330,72 290,82 170,79 C50,76 6,70 12,44Z"
-                      stroke="var(--bp-red)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>.
-              </h1>
 
+            {/* Left */}
+            <div style={{ paddingBottom: 64 }}>
               <div style={{
-                marginTop: 24, display: 'inline-flex', alignItems: 'center', gap: 8,
+                display: 'inline-flex', alignItems: 'center', gap: 8,
                 background: 'var(--bp-white)', border: '1px solid var(--bp-line-strong)',
                 borderRadius: 'var(--bp-r-pill)', padding: '6px 14px',
                 fontSize: 13, fontWeight: 500, color: 'var(--bp-stone-500)',
@@ -97,13 +77,26 @@ export default function HomePage() {
                 Family run · Since 2009
               </div>
 
+              <h1 style={{
+                fontSize: 'var(--bp-fs-hero)', fontWeight: 900,
+                letterSpacing: '-0.035em', lineHeight: 0.95,
+                marginTop: 20,
+              }}>
+                Blocked drain?<br />
+                There in{' '}
+                <span style={{ color: 'var(--bp-red)', textDecoration: 'underline', textDecorationColor: 'var(--bp-red)', textDecorationThickness: '4px', textUnderlineOffset: '6px' }}>
+                  60&nbsp;min.
+                </span>
+              </h1>
+
               <p style={{
                 marginTop: 'var(--bp-stack-gap)', fontSize: 19, lineHeight: 1.55,
                 color: 'var(--bp-stone-600)', maxWidth: 520,
               }}>
-                Six vans, six fully-trained engineers, working across Kent and the South East.
-                We turn up when we say we will, fix it properly, and tell you exactly what it cost — no surprises.
+                Six vans, six engineers across Kent and the South East.{' '}
+                <strong style={{ color: 'var(--bp-ink)' }}>We turn up, fix it properly, tell you the cost — no surprises.</strong>
               </p>
+
               <div style={{ marginTop: 'var(--bp-stack-gap)', display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
                 <a className="bp-btn bp-btn--cta bp-btn--lg" href={BP_PHONE_TEL}>
                   <Icon name="phone" size={18} stroke="#fff" />
@@ -115,59 +108,75 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="four-stats" style={{ marginTop: 'var(--bp-stack-gap)', paddingTop: 24, borderTop: '1px solid var(--bp-line-strong)' }}>
-                {[
-                  { v: '47 min', l: 'Avg. on-site, Kent' },
-                  { v: '6 vans', l: 'On the road today' },
-                  { v: '4.9★',   l: '218 Google reviews' },
-                  { v: '24/7',   l: 'Emergency callout' },
-                ].map(s => (
-                  <div key={s.l}>
-                    <div style={{
-                      fontFamily: 'var(--bp-font-display)', fontWeight: 800,
-                      fontSize: 28, lineHeight: 1, letterSpacing: '-0.02em',
-                    }}>{s.v}</div>
-                    <div className="bp-mono" style={{ marginTop: 6 }}>{s.l}</div>
-                  </div>
-                ))}
+              <div style={{ marginTop: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span className="bp-stars" style={{ fontSize: 18 }}>★★★★★</span>
+                <span style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 13, color: 'var(--bp-stone-600)' }}>
+                  4.9 · 218 Google reviews
+                </span>
               </div>
             </div>
 
-            {/* Hero image */}
-            <div className="hero-img-col" style={{ position: 'relative', height: 580, marginRight: 'calc(var(--bp-gutter) * -1)' }}>
-              <Image
-                src="/images/vans-in-a-row.webp"
-                alt="BP Drains South East fleet of six vans"
-                fill
-                priority
-                style={{ objectFit: 'cover' }}
-              />
-              <div style={{
-                position: 'absolute', top: 24, left: 24,
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: '#fff', padding: '8px 12px', borderRadius: 2,
-                fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em',
-                textTransform: 'uppercase', fontWeight: 600,
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#3DBA6E', display: 'inline-block' }} />
-                Live · 3 jobs in progress
+            {/* Right — stacked image + testimonial */}
+            <div className="hero-img-col" style={{ display: 'flex', flexDirection: 'column', marginRight: 'calc(var(--bp-gutter) * -1)' }}>
+              <div style={{ position: 'relative', flex: 1, minHeight: 360 }}>
+                <Image
+                  src="/images/vans-in-a-row.webp"
+                  alt="BP Drains South East fleet of six vans"
+                  fill
+                  priority
+                  style={{ objectFit: 'cover' }}
+                />
+                <div style={{
+                  position: 'absolute', top: 20, left: 20,
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)',
+                  padding: '8px 12px', borderRadius: 2,
+                  fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em',
+                  textTransform: 'uppercase', fontWeight: 600, color: '#fff',
+                }}>
+                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#3DBA6E', display: 'inline-block', boxShadow: '0 0 0 2px rgba(61,186,110,0.35)' }} />
+                  Live · 3 jobs in progress
+                </div>
               </div>
+
+              {/* Testimonial card */}
               <div style={{
-                position: 'absolute', left: 24, bottom: 24, right: 96,
                 background: '#fff', padding: '20px 24px',
-                borderLeft: '4px solid var(--bp-red)',
-                borderRadius: 2, boxShadow: 'var(--bp-shadow-md)',
+                borderTop: '3px solid var(--bp-red)',
               }}>
-                <div className="bp-stars">★ ★ ★ ★ ★</div>
-                <p style={{ marginTop: 8, fontSize: 15, lineHeight: 1.4 }}>
+                <div className="bp-stars" style={{ fontSize: 16 }}>★★★★★</div>
+                <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.5, fontStyle: 'italic' }}>
                   &ldquo;Called at 11pm with a kitchen drain backing up. Lewis was here by midnight,
-                  cleared it in 40 minutes, and the price was exactly what he quoted. Lifesavers.&rdquo;
+                  cleared it in 40 minutes — price was exactly what he quoted.&rdquo;
                 </p>
                 <div style={{
                   marginTop: 10, fontFamily: 'var(--bp-font-mono)', fontSize: 11,
                   letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--bp-fg-muted)',
-                }}>Sarah M · Whitstable · Google review · 12 Apr 2026</div>
+                }}>Sarah M · Whitstable · Google Review · 12 Apr 2026</div>
               </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Stats strip — full width, bottom of hero */}
+        <div style={{ borderTop: '1px solid var(--bp-line)', marginTop: 0 }}>
+          <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+            <div className="four-stats" style={{ borderLeft: '1px solid var(--bp-line)' }}>
+              {[
+                { v: '47 min', l: 'Avg on-site, Kent' },
+                { v: '6',      l: 'Vans on the road' },
+                { v: '4.9★',   l: '218 Google reviews' },
+                { v: '24/7',   l: 'Emergency callout' },
+              ].map(s => (
+                <div key={s.l} style={{ padding: '24px var(--bp-gutter)', borderRight: '1px solid var(--bp-line)' }}>
+                  <div style={{
+                    fontFamily: 'var(--bp-font-display)', fontWeight: 800,
+                    fontSize: 32, lineHeight: 1, letterSpacing: '-0.02em',
+                  }}>{s.v}</div>
+                  <div className="bp-mono" style={{ marginTop: 6 }}>{s.l}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
