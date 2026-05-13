@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import CTABand from '@/components/CTABand';
 import Icon from '@/components/Icon';
-import ImageSlot from '@/components/ImageSlot';
 import Eyebrow from '@/components/Eyebrow';
 import { BP_PHONE, BP_PHONE_TEL } from '@/lib/constants';
 
@@ -106,7 +106,9 @@ export default function BlockedDrainsPage() {
               </div>
             </div>
 
-            <ImageSlot label="JOB PHOTO — engineer rodding a manhole · supply" style={{ height: 540 }} dark accent />
+            <div style={{ position: 'relative', height: 540, borderRadius: 'var(--bp-r-2)', overflow: 'hidden' }}>
+              <Image src="/images/clearing-a-sewer-line-with-a-compressor.webp" alt="Engineer clearing a blocked drain" fill priority style={{ objectFit: 'cover' }} />
+            </div>
           </div>
         </div>
       </section>

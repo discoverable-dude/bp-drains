@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import CTABand from '@/components/CTABand';
 import Icon from '@/components/Icon';
-import ImageSlot from '@/components/ImageSlot';
 import Eyebrow from '@/components/Eyebrow';
 
 export const metadata: Metadata = {
@@ -141,7 +141,9 @@ export default function TestimonialsPage() {
             </div>
 
             <div className="bp-card" style={{ padding: 0 }}>
-              <ImageSlot label="JOB PHOTO — Canterbury restaurant relining · supply" style={{ height: 220, borderRadius: 0 }} dark />
+              <div style={{ position: 'relative', height: 220 }}>
+                <Image src="/images/Crawler-Cam.webp" alt="CCTV crawler camera used on the job" fill style={{ objectFit: 'cover' }} />
+              </div>
               <div style={{ padding: 24 }}>
                 <div className="bp-mono">Job reference</div>
                 <div style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 13, fontWeight: 600, marginTop: 4 }}>BP-26-0418-CT1</div>
@@ -184,7 +186,11 @@ export default function TestimonialsPage() {
                   <span className="bp-mono">{r.date}</span>
                 </div>
                 <div className="bp-stars">{'★ '.repeat(r.stars).trim()}</div>
-                {r.photo && <ImageSlot label="Customer photo · job after" style={{ height: 140 }} />}
+                {r.photo && (
+                  <div style={{ position: 'relative', height: 140, borderRadius: 'var(--bp-r-2)', overflow: 'hidden' }}>
+                    <Image src="/gallery/gutter-outside-house.webp" alt="Job photo" fill style={{ objectFit: 'cover' }} />
+                  </div>
+                )}
                 <p style={{ fontSize: 15, lineHeight: 1.5, flex: 1 }}>{r.text}</p>
                 <div style={{ paddingTop: 14, borderTop: '1px solid var(--bp-line)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>

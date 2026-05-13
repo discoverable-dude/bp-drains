@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
@@ -81,7 +82,9 @@ export default function MargatePage() {
             </div>
 
             <div style={{ position: 'relative' }}>
-              <ImageSlot label="MARGATE PHOTO — Aaron's van, harbour / local landmark · supply" style={{ height: 460 }} />
+              <div style={{ position: 'relative', height: 460, borderRadius: 'var(--bp-r-2)', overflow: 'hidden' }}>
+                <Image src="/images/vans-in-a-row.webp" alt="BP Drains vans covering Margate and Thanet" fill style={{ objectFit: 'cover' }} />
+              </div>
               <div style={{
                 position: 'absolute', left: 16, bottom: 16, right: 16,
                 background: '#fff', padding: 16,

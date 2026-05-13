@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import CTABand from '@/components/CTABand';
 import Icon from '@/components/Icon';
-import ImageSlot from '@/components/ImageSlot';
 import Eyebrow from '@/components/Eyebrow';
 
 export const metadata: Metadata = {
@@ -16,21 +16,21 @@ const FILTER_SERVICES = ['All', 'Blocked', 'CCTV', 'Repair', 'Jetting', 'Tanker'
 const FILTER_AREAS    = ['All Kent', 'Margate', 'Canterbury', 'Ashford', 'Folkestone'];
 
 const GRID_ITEMS = [
-  { l: 'CCTV still — root intrusion · Canterbury',         tag: 'CCTV',       area: 'Canterbury', dark: true,  span: 2 },
-  { l: 'Jetting before · grease build-up · restaurant',    tag: 'JETTING',    area: 'Whitstable', dark: true },
-  { l: 'Jetting after · clean run · 100mm',                tag: 'JETTING',    area: 'Whitstable' },
-  { l: 'New manhole · Margate Old Town',                   tag: 'EXCAVATION', area: 'Margate' },
-  { l: 'Tanker emptying · industrial site, Ashford',       tag: 'TANKER',     area: 'Ashford',    dark: true, tall: true },
-  { l: 'Soakaway crates installed · Herne Bay',            tag: 'SOAKAWAY',   area: 'Herne Bay' },
-  { l: 'Septic tank install · Dover farm',                 tag: 'SEPTIC',     area: 'Dover' },
-  { l: 'Engineer Lewis with CCTV crawler',                 tag: 'TEAM',       area: 'Kent',       span: 2 },
-  { l: 'Before · collapsed gully · Folkestone',            tag: 'REPAIR',     area: 'Folkestone', dark: true },
-  { l: 'After · new gully installed',                      tag: 'REPAIR',     area: 'Folkestone' },
-  { l: 'Drain rodding — yard drain · Broadstairs',         tag: 'BLOCKED',    area: 'Broadstairs' },
-  { l: 'Locating chamber under driveway · Ramsgate',       tag: 'SURVEY',     area: 'Ramsgate',   dark: true },
-  { l: 'Van 03 on a callout — Dover seafront',             tag: 'FLEET',      area: 'Dover',      dark: true },
-  { l: 'Before — toilet blockage · school, Thanet',        tag: 'BLOCKED',    area: 'Thanet',     dark: true },
-  { l: 'CIPP install, mid-cure · Canterbury',              tag: 'RELINING',   area: 'Canterbury' },
+  { src: '/gallery/cctv1.webp',                                              alt: 'CCTV survey — root intrusion, Canterbury',  tag: 'CCTV',       area: 'Canterbury', span: 2 },
+  { src: '/gallery/67449443_2556014134419173_7300167616797081600_o.webp',   alt: 'Grease build-up before jetting',            tag: 'JETTING',    area: 'Whitstable' },
+  { src: '/gallery/69919326_2637683579585561_5646349571383623680_o.webp',   alt: 'Cleared drain after high-pressure jetting', tag: 'JETTING',    area: 'Whitstable' },
+  { src: '/gallery/drain-in-driveway.webp',                                  alt: 'Drain repair in driveway',                  tag: 'EXCAVATION', area: 'Margate' },
+  { src: '/gallery/bpd1.webp',                                               alt: 'Tanker emptying industrial site',           tag: 'TANKER',     area: 'Ashford',    tall: true },
+  { src: '/gallery/bpdrain2.webp',                                            alt: 'Drainage installation',                     tag: 'SOAKAWAY',   area: 'Herne Bay' },
+  { src: '/gallery/Gallery8.webp',                                            alt: 'Drain survey and inspection',               tag: 'SURVEY',     area: 'Dover' },
+  { src: '/gallery/119486480_3527917627228814_2237385892678992918_o.webp',  alt: 'BP Drains team on site',                    tag: 'TEAM',       area: 'Kent',       span: 2 },
+  { src: '/gallery/47473832_2186064241414166_928130329447759872_o.jpg',     alt: 'Before — collapsed pipe repair',            tag: 'REPAIR',     area: 'Folkestone' },
+  { src: '/gallery/bp-0204-2.webp',                                          alt: 'After — pipe repair complete',              tag: 'REPAIR',     area: 'Folkestone' },
+  { src: '/gallery/71030581_2637683709585548_4431080925643669504_o.webp',   alt: 'Drain rodding — yard drain',                tag: 'BLOCKED',    area: 'Broadstairs' },
+  { src: '/gallery/AdobeStock_306187055.webp',                               alt: 'Drain survey and chamber location',         tag: 'SURVEY',     area: 'Ramsgate' },
+  { src: '/gallery/119592196_3527918563895387_4499695224378497610_o.webp',  alt: 'BP Drains van on callout',                  tag: 'FLEET',      area: 'Dover' },
+  { src: '/gallery/119604470_3527918147228762_7275274311276178422_o.webp',  alt: 'Drain blockage clearance',                  tag: 'BLOCKED',    area: 'Thanet' },
+  { src: '/gallery/cctv5.webp',                                               alt: 'CIPP liner installation',                   tag: 'RELINING',   area: 'Canterbury' },
 ];
 
 function BadgeTag({ children, red }: { children: React.ReactNode; red?: boolean }) {
@@ -108,14 +108,14 @@ export default function GalleryPage() {
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
           {/* Featured before/after pair */}
           <div style={{ marginBottom: 24 }}>
-            <div className="bp-mono" style={{ marginBottom: 12 }}>Featured · Faversham · 09 Apr 2026 · Sewer relining</div>
+            <div className="bp-mono" style={{ marginBottom: 12 }}>Featured · Canterbury · CCTV survey &amp; relining</div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 4, background: 'var(--bp-ink)' }}>
-              <div style={{ position: 'relative' }}>
-                <ImageSlot label="BEFORE — collapsed clay pipe, 110mm · CCTV still" style={{ height: 380, borderRadius: 0 }} dark />
+              <div style={{ position: 'relative', height: 380 }}>
+                <Image src="/gallery/cctv3.webp" alt="Before — CCTV survey showing pipe fault" fill style={{ objectFit: 'cover' }} />
                 <BadgeTag red>BEFORE</BadgeTag>
               </div>
-              <div style={{ position: 'relative' }}>
-                <ImageSlot label="AFTER — CIPP liner installed, no excavation" style={{ height: 380, borderRadius: 0 }} />
+              <div style={{ position: 'relative', height: 380 }}>
+                <Image src="/gallery/bp-0204-4.webp" alt="After — repair complete" fill style={{ objectFit: 'cover' }} />
                 <BadgeTag>AFTER</BadgeTag>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function GalleryPage() {
                 gridColumn: g.span ? `span ${g.span}` : undefined,
                 gridRow: g.tall ? 'span 2' : undefined,
               }}>
-                <ImageSlot label={g.l} dark={g.dark} style={{ height: '100%' }} />
+                <Image src={g.src} alt={g.alt} fill style={{ objectFit: 'cover' }} />
                 <BadgeTag>{g.tag}</BadgeTag>
                 <span style={{
                   position: 'absolute', bottom: 10, right: 10,

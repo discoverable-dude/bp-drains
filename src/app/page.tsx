@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import Icon from '@/components/Icon';
-import ImageSlot from '@/components/ImageSlot';
 import AccreditChip from '@/components/AccreditChip';
 import Eyebrow from '@/components/Eyebrow';
 import { BP_PHONE, BP_PHONE_TEL, BP_AREAS } from '@/lib/constants';
@@ -41,14 +41,14 @@ const TESTIMONIALS = [
 ];
 
 const GALLERY_ITEMS = [
-  { l: 'BEFORE · Root ingress · CCTV still',       tag: 'CCTV',       dark: true },
-  { l: 'AFTER · No-dig liner installed',            tag: 'REPAIR',     dark: false },
-  { l: 'BEFORE · Collapsed clay pipe, Ashford',    tag: 'EXCAVATION', dark: true },
-  { l: 'AFTER · New 110mm pipe + bedding',          tag: 'EXCAVATION', dark: false },
-  { l: 'BEFORE · Grease build-up · restaurant',    tag: 'JETTING',    dark: true },
-  { l: 'AFTER · Cleared with 3000psi jet',          tag: 'JETTING',    dark: false },
-  { l: 'Tanker job, Whitstable Marina',             tag: 'TANKER',     dark: false },
-  { l: 'Manhole locate · Ramsgate',                 tag: 'SURVEY',     dark: false },
+  { src: '/gallery/cctv1.webp',                                                  alt: 'CCTV survey — root intrusion',          tag: 'CCTV' },
+  { src: '/gallery/bp-0204-2.webp',                                              alt: 'No-dig liner installed',                tag: 'REPAIR' },
+  { src: '/gallery/47473832_2186064241414166_928130329447759872_o.jpg',          alt: 'Collapsed clay pipe repair',            tag: 'EXCAVATION' },
+  { src: '/gallery/bp-0204-3.webp',                                              alt: 'New 110mm pipe installed',              tag: 'EXCAVATION' },
+  { src: '/gallery/67449443_2556014134419173_7300167616797081600_o.webp',        alt: 'Grease build-up before jetting',        tag: 'JETTING' },
+  { src: '/gallery/69919326_2637683579585561_5646349571383623680_o.webp',        alt: 'Cleared drain after high-pressure jet', tag: 'JETTING' },
+  { src: '/gallery/bpd1.webp',                                                   alt: 'Tanker emptying job',                   tag: 'TANKER' },
+  { src: '/gallery/Gallery8.webp',                                               alt: 'Drain survey and inspection',           tag: 'SURVEY' },
 ];
 
 export default function HomePage() {
@@ -120,10 +120,12 @@ export default function HomePage() {
 
             {/* Hero image */}
             <div className="hero-img-col" style={{ position: 'relative', height: 580, marginRight: 'calc(var(--bp-gutter) * -1)' }}>
-              <ImageSlot
-                label="HERO PHOTO — full team in front of 6-van fleet · supply"
-                style={{ position: 'absolute', inset: 0, height: '100%', borderRadius: 0 }}
-                dark accent
+              <Image
+                src="/images/Team-img.webp"
+                alt="BP Drains South East team"
+                fill
+                priority
+                style={{ objectFit: 'cover' }}
               />
               <div style={{
                 position: 'absolute', top: 24, left: 24,
@@ -171,10 +173,10 @@ export default function HomePage() {
             <style>{`.accredit-grid { grid-template-columns: repeat(6, 1fr) !important; }
               @media (max-width: 767px) { .accredit-grid { grid-template-columns: repeat(3, 1fr) !important; } }`}
             </style>
-            <AccreditChip name="Checkatrade"   sub="Vetted member"       mark="✓" />
-            <AccreditChip name="WaterSafe"     sub="Approved contractor" mark="WS" />
-            <AccreditChip name="NADC"          sub="Drainage assoc."     mark="N" />
-            <AccreditChip name="Trustpilot"    sub="4.9 / 5 · 312 rev."  mark="★" />
+            <AccreditChip name="Checkatrade"   sub="Vetted member"       mark="✓"  logoSrc="/logos/checkatrade-com-logo-png_seeklogo-215905-removebg-preview.webp" />
+            <AccreditChip name="Drain Safe"    sub="Approved contractor" mark="DS" logoSrc="/logos/Drain-Safe-Logo.webp" />
+            <AccreditChip name="NADC"          sub="Drainage assoc."     mark="N"  logoSrc="/logos/NADC-Logo-Original-removebg-preview.webp" />
+            <AccreditChip name="FSB Member"    sub="Small business fed." mark="F"  logoSrc="/logos/Federation_of_Small_Businesses_logo-svg.png" />
             <AccreditChip name="DBS Checked"   sub="All engineers"       mark="✓" />
             <AccreditChip name="Public Liability" sub="£5m cover"        mark="£" />
           </div>
@@ -258,7 +260,14 @@ export default function HomePage() {
             </div>
 
             <div>
-              <ImageSlot label="6-VAN FLEET LINE-UP · livery shot · supply" style={{ height: 360 }} dark />
+              <div style={{ position: 'relative', height: 360, borderRadius: 'var(--bp-r-2)', overflow: 'hidden', background: 'var(--bp-ink)' }}>
+                <video
+                  autoPlay muted loop playsInline
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
+                >
+                  <source src="/videos/bp_drains%20(1080p).mp4" type="video/mp4" />
+                </video>
+              </div>
               <div style={{
                 marginTop: 16, padding: '24px 0',
                 borderTop: '1px solid rgba(255,255,255,0.12)',
@@ -374,13 +383,13 @@ export default function HomePage() {
 
           <div className="bp-grid-4" style={{ gap: 12, background: 'transparent', border: 'none' }}>
             {GALLERY_ITEMS.map((it, i) => (
-              <div key={i} style={{ position: 'relative' }}>
-                <ImageSlot label={it.l} dark={it.dark} style={{ height: 200 }} />
+              <div key={i} style={{ position: 'relative', height: 200, borderRadius: 'var(--bp-r-2)', overflow: 'hidden' }}>
+                <Image src={it.src} alt={it.alt} fill style={{ objectFit: 'cover' }} />
                 <span style={{
                   position: 'absolute', top: 10, left: 10,
                   fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,
                   letterSpacing: '0.12em', padding: '4px 8px', borderRadius: 2,
-                  background: '#fff', color: 'var(--bp-ink)',
+                  background: '#fff', color: 'var(--bp-ink)', zIndex: 1,
                 }}>{it.tag}</span>
               </div>
             ))}
