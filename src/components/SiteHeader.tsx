@@ -46,10 +46,6 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
           </nav>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <a href={BP_PHONE_TEL} className="nav-phone">
-              <Icon name="phone" size={14} />
-              {BP_PHONE}
-            </a>
             <a href={BP_PHONE_TEL} className="bp-btn bp-btn--cta bp-btn--sm">
               <Icon name="phone" size={14} stroke="#fff" />
               Call Now

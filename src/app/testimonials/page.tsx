@@ -176,7 +176,7 @@ export default function TestimonialsPage() {
 
           <div className="bp-grid-3">
             {REVIEWS.map(r => (
-              <div key={r.name + r.date} className="bp-card" style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div key={r.name + r.date} className="bp-card" style={{ padding: 'var(--bp-card-pad)', display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span style={{
                     fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,

@@ -68,28 +68,43 @@ export default function HomePage() {
           padding: '64px var(--bp-gutter) 0',
           position: 'relative',
         }}>
-          <span className="bp-reg" style={{ position: 'absolute', top: 16, left: 'var(--bp-gutter)' }}>BP·SE / HOMEPAGE / 01</span>
-          <span className="bp-reg" style={{ position: 'absolute', top: 16, right: 'var(--bp-gutter)' }}>KENT · SOUTH EAST · UK</span>
-
           <div className="hero-split">
             <div>
-              <Eyebrow index="01 / 09" label="Local drainage · Family run · Since 2009" />
               <h1 style={{
                 fontSize: 'var(--bp-fs-hero)', fontWeight: 900,
-                marginTop: 24, letterSpacing: '-0.035em', lineHeight: 0.95,
+                letterSpacing: '-0.035em', lineHeight: 0.95,
               }}>
                 Blocked drain?<br />
                 <span style={{ color: 'var(--bp-stone-500)' }}>We&apos;ll be there</span><br />
-                in 60&nbsp;minutes.
+                in{' '}
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  60&nbsp;minutes
+                  <svg aria-hidden viewBox="0 0 340 88" fill="none"
+                    style={{ position: 'absolute', top: '-15%', left: '-4%', width: '108%', height: '130%', pointerEvents: 'none', overflow: 'visible' }}>
+                    <path d="M12,44 C18,8 84,2 170,5 C256,8 322,18 326,46 C330,72 290,82 170,79 C50,76 6,70 12,44Z"
+                      stroke="var(--bp-red)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>.
               </h1>
+
+              <div style={{
+                marginTop: 24, display: 'inline-flex', alignItems: 'center', gap: 8,
+                background: 'var(--bp-white)', border: '1px solid var(--bp-line-strong)',
+                borderRadius: 'var(--bp-r-pill)', padding: '6px 14px',
+                fontSize: 13, fontWeight: 500, color: 'var(--bp-stone-500)',
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--bp-ink)', display: 'inline-block', flexShrink: 0 }} />
+                Family run · Since 2009
+              </div>
+
               <p style={{
-                marginTop: 28, fontSize: 19, lineHeight: 1.55,
+                marginTop: 'var(--bp-stack-gap)', fontSize: 19, lineHeight: 1.55,
                 color: 'var(--bp-stone-600)', maxWidth: 520,
               }}>
                 Six vans, six fully-trained engineers, working across Kent and the South East.
                 We turn up when we say we will, fix it properly, and tell you exactly what it cost — no surprises.
               </p>
-              <div style={{ marginTop: 36, display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+              <div style={{ marginTop: 'var(--bp-stack-gap)', display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
                 <a className="bp-btn bp-btn--cta bp-btn--lg" href={BP_PHONE_TEL}>
                   <Icon name="phone" size={18} stroke="#fff" />
                   Call {BP_PHONE}
@@ -100,7 +115,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="four-stats" style={{ marginTop: 48, paddingTop: 24, borderTop: '1px solid var(--bp-line-strong)' }}>
+              <div className="four-stats" style={{ marginTop: 'var(--bp-stack-gap)', paddingTop: 24, borderTop: '1px solid var(--bp-line-strong)' }}>
                 {[
                   { v: '47 min', l: 'Avg. on-site, Kent' },
                   { v: '6 vans', l: 'On the road today' },
@@ -121,8 +136,8 @@ export default function HomePage() {
             {/* Hero image */}
             <div className="hero-img-col" style={{ position: 'relative', height: 580, marginRight: 'calc(var(--bp-gutter) * -1)' }}>
               <Image
-                src="/images/Team-img.webp"
-                alt="BP Drains South East team"
+                src="/images/vans-in-a-row.webp"
+                alt="BP Drains South East fleet of six vans"
                 fill
                 priority
                 style={{ objectFit: 'cover' }}
@@ -186,7 +201,7 @@ export default function HomePage() {
       {/* ── SERVICES ── */}
       <section style={{ background: 'var(--bp-stone-100)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
-          <div className="two-col" style={{ alignItems: 'end', marginBottom: 56, gap: 48 }}>
+          <div className="two-col" style={{ alignItems: 'end', marginBottom: 'var(--bp-heading-gap)', gap: 48 }}>
             <div>
               <Eyebrow index="03 / 09" label="What we do" />
               <h2 style={{ marginTop: 20, maxWidth: 540 }}>Every drainage job, end to end.</h2>
@@ -200,7 +215,7 @@ export default function HomePage() {
           <div className="bp-grid-4">
             {SERVICES.map((s, i) => (
               <div key={s.name} style={{
-                background: 'var(--bp-white)', padding: '32px 28px',
+                background: 'var(--bp-white)', padding: 'var(--bp-card-pad)',
                 display: 'flex', flexDirection: 'column', gap: 16,
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -244,11 +259,17 @@ export default function HomePage() {
             <div>
               <Eyebrow index="04 / 09" label="The fleet" onDark />
               <h2 style={{ color: '#fff', marginTop: 20 }}>Six vans. One team. <br />Kent through and through.</h2>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 17, lineHeight: 1.55, marginTop: 20, maxWidth: 480 }}>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 17, lineHeight: 1.55, marginTop: 'var(--bp-stack-gap)', maxWidth: 480 }}>
                 You don&apos;t get a sub-contractor. You get one of six BP Drains vans, kitted out with everything
                 we need to finish the job on the first visit — jetters, rods, CCTV crawler, repair kit, the lot.
               </p>
-              <div className="van-grid" style={{ marginTop: 36 }}>
+              <div style={{
+                fontFamily: 'var(--bp-font-hand)',
+                fontSize: 30, fontWeight: 400,
+                color: 'rgba(255,255,255,0.45)',
+                marginTop: 20, lineHeight: 1, letterSpacing: '0.01em',
+              }}>— Lewis, BP Drains</div>
+              <div className="van-grid" style={{ marginTop: 'var(--bp-stack-gap)' }}>
                 {VANS.map(v => (
                   <div key={v.l} style={{ background: 'var(--bp-ink)', padding: '16px 18px', border: '1px solid rgba(255,255,255,0.06)' }}>
                     <div style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.45)' }}>{v.l}</div>
@@ -309,7 +330,7 @@ export default function HomePage() {
           <Eyebrow index="05 / 09" label="How we work" />
           <h2 style={{ marginTop: 20, maxWidth: 760 }}>No surprise costs. No &ldquo;we&apos;ll need to come back&rdquo;. <br />Just four steps.</h2>
 
-          <div className="process-grid" style={{ marginTop: 56 }}>
+          <div className="process-grid" style={{ marginTop: 'var(--bp-heading-gap)' }}>
             {[
               { n: '01', t: 'You call',    d: 'Tell us what\'s happening. We give you a window — almost always same day, often same hour.' },
               { n: '02', t: 'We turn up',  d: 'A BP Drains van, in livery, with the right kit on board. We text you when we\'re 10 minutes out.' },
@@ -347,7 +368,7 @@ export default function HomePage() {
 
           <div className="bp-grid-3">
             {TESTIMONIALS.map(t => (
-              <div key={t.name} className="bp-card" style={{ padding: 28, display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div key={t.name} className="bp-card" style={{ padding: 'var(--bp-card-pad)', display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span style={{
                     fontFamily: 'var(--bp-font-mono)', fontSize: 11, fontWeight: 600,

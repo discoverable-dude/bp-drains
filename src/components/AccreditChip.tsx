@@ -12,7 +12,7 @@ export default function AccreditChip({ name, sub, mark, logoSrc }: AccreditChipP
   return (
     <div style={{
       background: 'var(--bp-white)', border: '1px solid var(--bp-line)',
-      borderRadius: 'var(--bp-r-2)', padding: '20px 18px',
+      borderRadius: 'var(--bp-r-2)', padding: 'var(--bp-card-pad)',
       display: 'flex', alignItems: 'center', gap: 14,
       minHeight: 88, cursor: 'pointer',
     }}>

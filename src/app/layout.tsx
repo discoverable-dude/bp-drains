@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono, Caveat } from 'next/font/google';
 import './globals.css';
 import FloatingCTAs from '@/components/FloatingCTAs';
 
@@ -24,6 +24,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-caveat',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: { default: 'BP Drains South East — Local Drainage Specialists, Kent', template: '%s | BP Drains South East' },
   description: 'Local, family-run drainage specialists covering Kent and the South East since 2009. Six vans, real engineers, honest pricing. 24/7 emergency callout.',
@@ -37,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${caveat.variable}`}>
       <body>
         {children}
         <FloatingCTAs />

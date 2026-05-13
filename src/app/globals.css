@@ -37,6 +37,7 @@ body { height: 100%; }
   --bp-font-display: var(--font-archivo, 'Archivo', system-ui, sans-serif);
   --bp-font-body:    var(--font-ibm-plex-sans, 'IBM Plex Sans', system-ui, sans-serif);
   --bp-font-mono:    var(--font-ibm-plex-mono, 'IBM Plex Mono', ui-monospace, monospace);
+  --bp-font-hand:    var(--font-caveat, 'Caveat', cursive);
 
   /* Type scale */
   --bp-fs-hero: clamp(52px, 6.1vw, 88px);
@@ -54,7 +55,10 @@ body { height: 100%; }
   --bp-s-5: 24px;  --bp-s-6: 32px;  --bp-s-7: 48px;  --bp-s-8: 64px;
   --bp-s-9: 96px;  --bp-s-10: 128px;
 
-  --bp-section-y: 96px;
+  --bp-section-y:   128px;
+  --bp-heading-gap: 48px;
+  --bp-stack-gap:   32px;
+  --bp-card-pad:    32px;
   --bp-container: 1280px;
   --bp-gutter:    48px;
 
@@ -218,7 +222,7 @@ input, textarea, select { font-family: inherit; }
 @media (max-width: 1023px) {
   :root {
     --bp-gutter: 32px;
-    --bp-section-y: 72px;
+    --bp-section-y: 96px;
   }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .two-col-wide  { grid-template-columns: 1fr; }
@@ -227,7 +231,9 @@ input, textarea, select { font-family: inherit; }
 @media (max-width: 767px) {
   :root {
     --bp-gutter: 20px;
-    --bp-section-y: 56px;
+    --bp-section-y: 80px;
+    --bp-heading-gap: 32px;
+    --bp-stack-gap: 24px;
     --bp-fs-body: 16px;
   }
 
