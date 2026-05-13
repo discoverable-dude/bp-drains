@@ -259,6 +259,18 @@ input, textarea, select { font-family: inherit; }
   .hero-img-col { display: none; }
 }
 
+/* ─── Markdown prose renderer ────────────────────────────────────────── */
+.bp-prose { font-size: 17px; line-height: 1.7; color: var(--bp-stone-600); }
+.bp-prose h2 { font-family: var(--bp-font-display); font-size: var(--bp-fs-h3); font-weight: 800; letter-spacing: -0.02em; color: var(--bp-ink); margin-top: 2em; margin-bottom: 0.5em; }
+.bp-prose h3 { font-family: var(--bp-font-display); font-size: 20px; font-weight: 700; color: var(--bp-ink); margin-top: 1.6em; margin-bottom: 0.4em; }
+.bp-prose h4 { font-size: 16px; font-weight: 700; color: var(--bp-ink); margin-top: 1.4em; margin-bottom: 0.3em; }
+.bp-prose p  { margin-top: 1em; }
+.bp-prose p:first-child { margin-top: 0; }
+.bp-prose ul, .bp-prose ol { margin-top: 1em; padding-left: 1.4em; display: flex; flex-direction: column; gap: 8px; }
+.bp-prose li { line-height: 1.55; }
+.bp-prose strong { font-weight: 700; color: var(--bp-ink); }
+.bp-prose a { color: var(--bp-ink); text-decoration: underline; font-weight: 600; }
+
 /* ─── Header nav desktop / mobile ────────────────────────────────────── */
 .nav-desktop { display: flex; align-items: center; gap: 28px; }
 .nav-phone   { display: flex; align-items: center; gap: 8px; font-family: var(--bp-font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
