@@ -139,20 +139,16 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Testimonial card */}
+              {/* Accreditation logos */}
               <div style={{
-                background: '#fff', padding: '20px 24px',
+                background: '#fff', padding: '18px 24px',
                 borderTop: '3px solid var(--bp-red)',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap',
               }}>
-                <div className="bp-stars" style={{ fontSize: 16 }}>★★★★★</div>
-                <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.5, fontStyle: 'italic' }}>
-                  &ldquo;Called at 11pm with a kitchen drain backing up. Lewis was here by midnight,
-                  cleared it in 40 minutes — price was exactly what he quoted.&rdquo;
-                </p>
-                <div style={{
-                  marginTop: 10, fontFamily: 'var(--bp-font-mono)', fontSize: 11,
-                  letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--bp-fg-muted)',
-                }}>Sarah M · Whitstable · Google Review · 12 Apr 2026</div>
+                <Image src="/logos/checkatrade-com-logo-png_seeklogo-215905-removebg-preview.webp" alt="Checkatrade" width={100} height={32} style={{ objectFit: 'contain', height: 28, width: 'auto' }} />
+                <Image src="/logos/Drain-Safe-Logo.webp" alt="Drain Safe Approved" width={80} height={32} style={{ objectFit: 'contain', height: 28, width: 'auto' }} />
+                <Image src="/logos/NADC-Logo-Original-removebg-preview.webp" alt="NADC Member" width={80} height={32} style={{ objectFit: 'contain', height: 28, width: 'auto' }} />
+                <Image src="/logos/Federation_of_Small_Businesses_logo-svg.png" alt="FSB Member" width={80} height={32} style={{ objectFit: 'contain', height: 28, width: 'auto' }} />
               </div>
             </div>
 
