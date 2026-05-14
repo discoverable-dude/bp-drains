@@ -5,7 +5,6 @@ import UtilityBar from '@/components/UtilityBar';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import Icon from '@/components/Icon';
-import AccreditChip from '@/components/AccreditChip';
 import Eyebrow from '@/components/Eyebrow';
 import { BP_PHONE, BP_PHONE_TEL, BP_AREAS } from '@/lib/constants';
 
@@ -174,31 +173,6 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ACCREDITATIONS ── */}
-      <section style={{ background: 'var(--bp-white)', padding: '40px var(--bp-gutter)', borderBottom: '1px solid var(--bp-line)' }}>
-        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-            <Eyebrow index="02 / 09" label="Accreditations & partners" />
-            <a href="#" style={{
-              fontFamily: 'var(--bp-font-mono)', fontSize: 12, letterSpacing: '0.08em',
-              textTransform: 'uppercase', color: 'var(--bp-fg-muted)',
-            }}>See all 12 →</a>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}
-               className="accredit-grid">
-            <style>{`.accredit-grid { grid-template-columns: repeat(6, 1fr) !important; }
-              @media (max-width: 767px) { .accredit-grid { grid-template-columns: repeat(3, 1fr) !important; } }`}
-            </style>
-            <AccreditChip name="Checkatrade"   sub="Vetted member"       mark="✓"  logoSrc="/logos/checkatrade-com-logo-png_seeklogo-215905-removebg-preview.webp" />
-            <AccreditChip name="Drain Safe"    sub="Approved contractor" mark="DS" logoSrc="/logos/Drain-Safe-Logo.webp" />
-            <AccreditChip name="NADC"          sub="Drainage assoc."     mark="N"  logoSrc="/logos/NADC-Logo-Original-removebg-preview.webp" />
-            <AccreditChip name="FSB Member"    sub="Small business fed." mark="F"  logoSrc="/logos/Federation_of_Small_Businesses_logo-svg.png" />
-            <AccreditChip name="DBS Checked"   sub="All engineers"       mark="✓" />
-            <AccreditChip name="Public Liability" sub="£5m cover"        mark="£" />
           </div>
         </div>
       </section>
