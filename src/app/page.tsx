@@ -155,7 +155,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats strip — full width, bottom of hero */}
-        <div style={{ borderTop: '1px solid var(--bp-line)', marginTop: 0 }}>
+        <div style={{ borderTop: '1px solid var(--bp-line)', marginTop: 0, background: 'var(--bp-white)' }}>
           <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
             <div className="four-stats" style={{ borderLeft: '1px solid var(--bp-line)' }}>
               {[
