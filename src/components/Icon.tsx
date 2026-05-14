@@ -64,6 +64,9 @@ export default function Icon({ name, size = 24, stroke = 'currentColor' }: IconP
     case 'star': return (
       <svg {...props} fill={stroke} stroke="none"><path d="M12 3l2.5 6 6.5.5-5 4.5 1.5 6.5L12 17l-5.5 3.5L8 14 3 9.5 9.5 9z"/></svg>
     );
+    case 'chevron-down': return (
+      <svg {...props}><path d="M6 9l6 6 6-6"/></svg>
+    );
     case 'menu': return (
       <svg {...props}><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     );
