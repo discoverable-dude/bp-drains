@@ -26,7 +26,7 @@ export default function SiteFooter() {
           <div>
             <Logo onDark size="lg" />
             <p style={{ marginTop: 24, color: 'rgba(255,255,255,0.65)', maxWidth: 320, fontSize: 15 }}>
-              Local, family-run drainage specialists covering Kent and the South East since 2009.
+              Local, family-run drainage specialists covering Kent and the South East since 2011.
               Six vans, real engineers, honest work.
             </p>
             <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>

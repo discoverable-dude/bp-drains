@@ -14,14 +14,30 @@ export const metadata: Metadata = {
 };
 
 const SERVICES = [
-  { icon: 'blocked',  name: 'Blocked drains',       slug: 'blocked-drains',         sub: 'Domestic & commercial', desc: 'Sinks, toilets, gullies, manholes — cleared fast, fixed properly.' },
-  { icon: 'cctv',     name: 'CCTV surveys',          slug: 'cctv-drain-surveys',     sub: 'WinCan reports',        desc: 'High-def survey footage, faults marked, written report next day.' },
-  { icon: 'repair',   name: 'Drain repairs',         slug: 'drain-repairs',          sub: 'Excavation & lining',   desc: 'Collapsed pipes, root damage, displaced joints — fixed first time.' },
-  { icon: 'jetting',  name: 'High-pressure jetting', slug: 'emergency-drainage',     sub: 'Up to 4000 psi',        desc: 'Scale, grease and root cutting on commercial runs.' },
-  { icon: 'tanker',   name: 'Tanker services',       slug: 'emergency-drainage',     sub: '3000 gal capacity',     desc: 'Septic emptying, interceptors, flooded basements — pumped out.' },
-  { icon: 'sewer',    name: 'Sewer relining',        slug: 'drain-lining',           sub: 'No-dig repair',         desc: 'Patch and full-length CIPP relining for sewer & lateral pipes.' },
-  { icon: 'septic',   name: 'Septic tanks',          slug: 'drain-repairs',          sub: 'Install & service',     desc: 'New installs, regular maintenance and pre-sale surveys.' },
-  { icon: 'soakaway', name: 'Soakaways',             slug: 'drain-repairs',          sub: 'Design & build',        desc: 'Surface water solutions and replacement soakaway crates.' },
+  { icon: 'blocked',  name: 'Blocked drains',      slug: 'blocked-drains',          sub: 'Domestic & commercial', desc: 'Sinks, toilets, gullies, manholes — cleared fast, fixed properly.' },
+  { icon: 'cctv',     name: 'CCTV surveys',         slug: 'cctv-drain-surveys',      sub: 'WinCan reports',        desc: 'High-def survey footage, faults marked, written report next day.' },
+  { icon: 'repair',   name: 'Drain repairs',        slug: 'drain-repairs',           sub: 'Excavation & lining',   desc: 'Collapsed pipes, root damage, displaced joints — fixed first time.' },
+  { icon: 'clock',    name: 'Emergency drainage',   slug: 'emergency-drainage',      sub: '24 / 7 callout',        desc: 'Burst pipes, flooding, sewage backups — we respond within the hour.' },
+  { icon: 'sewer',    name: 'Drain lining',         slug: 'drain-lining',            sub: 'No-dig repair',         desc: 'Patch and full-length CIPP relining — no excavation needed.' },
+  { icon: 'soakaway', name: 'Gutter cleaning',      slug: 'gutter-cleaning',         sub: 'Internal & external',   desc: 'Complete gutter clearing and cleaning for all gutters and fascias.' },
+  { icon: 'survey',   name: 'Homebuyer surveys',    slug: 'homebuyer-drain-surveys', sub: 'Pre-purchase report',   desc: 'Full drainage inspection before you buy. Written report, clear findings.' },
+];
+
+const CREDENTIALS = [
+  'NADC Member', 'DrainSafe Approved', 'Renoline Certified',
+  'Checkatrade', 'CITB Certified', 'DBS Checked', 'FSB Member', 'ISO Standards',
+];
+
+const FAQS = [
+  { q: 'How do I know if my drains are blocked?', a: 'Common indicators include waste not going away when the toilet is flushed, a foul smell around the drains, or overflowing outside gullies. If your neighbours aren\'t affected, it\'s likely a localised blockage rather than a shared sewer issue. Our experts are available at all times to help.' },
+  { q: 'What counts as an emergency drainage situation?', a: 'Blocked sinks, overflowing drains, leaking pipes, water flooding, frozen pipes and sewage backups all fall under our emergency drainage service. These can cause serious damage quickly — our team is available 24/7 to resolve problems at your property.' },
+  { q: 'Do I need a drain survey when buying a house?', a: 'You\'re not legally required to, but it\'s strongly recommended. A homebuyer drain survey can flag existing and potential issues, helping you make informed decisions about your purchase and avoid unexpected repair costs after you move in.' },
+  { q: 'What happens during a CCTV drain survey?', a: 'We insert a small camera on a flexible cable into the drainage system and navigate it through the pipes remotely, capturing live high-quality footage. We create a full written report including findings, fault locations and recommendations — typically delivered the next day.' },
+  { q: 'Why is gutter cleaning important?', a: 'Gutters protect your property from water damage. When they become blocked — through leaves, debris or weather — they can cause leaky roofs, damp walls, mould, and even attract pests. Regular clearing prevents all of this and protects the fabric of your building.' },
+  { q: 'Why do you use Renoline for drain lining?', a: 'We are certified Renoline installers. Their system allows us to place a new pipe inside an existing compromised pipe without any excavation, meaning minimal disruption to your property. It\'s faster, cleaner and often more cost-effective than digging.' },
+  { q: 'Why choose BP Drains?', a: 'We\'re an award-winning local team (National Drainage Awards 2024 — Small Contractor of the Year) with over 50 years of combined experience. We hold NADC membership, DrainSafe approval, Checkatrade membership and numerous other certifications. Fixed prices, no hidden costs, and we pick up the phone 24/7.' },
+  { q: 'What areas do you cover?', a: 'We cover all of Kent including Margate, Ramsgate, Canterbury, Ashford, Dover, Folkestone, Faversham, Broadstairs, Whitstable, Herne Bay and Thanet — plus surrounding CT, ME and TN postcodes. Call us and we\'ll confirm coverage for your location.' },
+  { q: 'What work do you guarantee?', a: 'All completed work is guaranteed. The length of the guarantee varies depending on the type of job — a member of our team will confirm the details during your initial consultation. We stand behind everything we do.' },
 ];
 
 const VANS = [
@@ -73,7 +89,7 @@ export default function HomePage() {
                 color: 'var(--bp-stone-500)',
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--bp-ink)', display: 'inline-block', flexShrink: 0 }} />
-                Family run · Since 2009
+                Family run · Since 2011
               </div>
 
               <h1 style={{
@@ -177,12 +193,40 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── AWARDS & CREDENTIALS ── */}
+      <section style={{ background: 'var(--bp-white)', padding: '56px var(--bp-gutter)', borderBottom: '1px solid var(--bp-line)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div className="two-col" style={{ alignItems: 'center', gap: 64 }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 16, padding: '20px 24px', background: 'var(--bp-stone-100)', borderRadius: 'var(--bp-r-2)', border: '1px solid var(--bp-line-strong)' }}>
+                <div style={{ fontSize: 36, lineHeight: 1 }}>🏆</div>
+                <div>
+                  <div style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bp-fg-muted)' }}>National Drainage Awards 2024</div>
+                  <div style={{ fontFamily: 'var(--bp-font-display)', fontWeight: 800, fontSize: 20, letterSpacing: '-0.02em', marginTop: 4, color: 'var(--bp-ink)' }}>Small Contractor of the Year</div>
+                </div>
+              </div>
+              <p style={{ marginTop: 20, color: 'var(--bp-stone-600)', fontSize: 15, lineHeight: 1.6, maxWidth: 420 }}>
+                Established 2011. Our in-house team holds over 50 years of combined experience and an array of industry certifications — DrainSafe approved, NADC members, Renoline certified installers.
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+              {CREDENTIALS.map(c => (
+                <div key={c} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--bp-stone-100)', border: '1px solid var(--bp-line-strong)', borderRadius: 'var(--bp-r-1)', padding: '9px 14px', fontSize: 13, fontWeight: 500 }}>
+                  <Icon name="check" size={14} stroke="var(--bp-red)" />
+                  {c}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── SERVICES ── */}
       <section style={{ background: 'var(--bp-stone-100)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
           <div className="two-col" style={{ alignItems: 'end', marginBottom: 'var(--bp-heading-gap)', gap: 48 }}>
             <div>
-              <Eyebrow index="03 / 09" label="What we do" />
+              <Eyebrow index="02 / 08" label="What we do" />
               <h2 style={{ marginTop: 20, maxWidth: 540 }}>Every drainage job, end to end.</h2>
             </div>
             <p style={{ color: 'var(--bp-stone-600)', fontSize: 17, lineHeight: 1.5, maxWidth: 480 }}>
@@ -236,7 +280,7 @@ export default function HomePage() {
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
           <div className="two-col" style={{ gap: 64, alignItems: 'start' }}>
             <div>
-              <Eyebrow index="04 / 09" label="The fleet" onDark />
+              <Eyebrow index="03 / 08" label="The fleet" onDark />
               <h2 style={{ color: '#fff', marginTop: 20 }}>Six vans. One team. <br />Kent through and through.</h2>
               <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 17, lineHeight: 1.55, marginTop: 'var(--bp-stack-gap)', maxWidth: 480 }}>
                 You don&apos;t get a sub-contractor. You get one of six BP Drains vans, kitted out with everything
@@ -306,7 +350,7 @@ export default function HomePage() {
       {/* ── PROCESS ── */}
       <section style={{ background: 'var(--bp-white)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
-          <Eyebrow index="05 / 09" label="How we work" />
+          <Eyebrow index="04 / 08" label="How we work" />
           <h2 style={{ marginTop: 20, maxWidth: 560 }}>From your call<br />to cleared drain.</h2>
 
           <div className="process-grid" style={{ marginTop: 'var(--bp-heading-gap)' }}>
@@ -337,7 +381,7 @@ export default function HomePage() {
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
             <div>
-              <Eyebrow index="06 / 09" label="What our customers say" />
+              <Eyebrow index="05 / 08" label="What our customers say" />
               <h2 style={{ marginTop: 20 }}>312 reviews. <span style={{ color: 'var(--bp-red)' }}>4.9</span> average.<br />Read them all.</h2>
             </div>
             <Link href="/testimonials" className="bp-btn bp-btn--ghost">
@@ -368,12 +412,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── GALLERY PREVIEW ── */}
+      {/* ── FAQs ── */}
       <section style={{ background: 'var(--bp-white)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
+        <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
+          <div className="two-col-wide" style={{ gap: 96, alignItems: 'start' }}>
+            <div style={{ position: 'sticky', top: 120 }}>
+              <Eyebrow index="06 / 08" label="Common questions" />
+              <h2 style={{ marginTop: 20 }}>Answers before you call.</h2>
+              <p style={{ marginTop: 16, color: 'var(--bp-stone-600)', fontSize: 17, lineHeight: 1.55, maxWidth: 340 }}>
+                Can&apos;t find what you need? We pick up 24/7.
+              </p>
+              <div style={{ marginTop: 32 }}>
+                <a href={BP_PHONE_TEL} className="bp-btn bp-btn--cta">
+                  <Icon name="phone" size={14} stroke="#fff" /> {BP_PHONE}
+                </a>
+              </div>
+            </div>
+            <div>
+              {FAQS.map((faq, i) => (
+                <details key={i} style={{ borderTop: i === 0 ? '1px solid var(--bp-line)' : undefined, borderBottom: '1px solid var(--bp-line)' }}>
+                  <summary style={{
+                    padding: '20px 0', cursor: 'pointer', listStyle: 'none',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
+                    fontFamily: 'var(--bp-font-display)', fontWeight: 700, fontSize: 17,
+                    letterSpacing: '-0.01em',
+                  }}>
+                    {faq.q}
+                    <Icon name="chevron-down" size={18} stroke="var(--bp-fg-muted)" />
+                  </summary>
+                  <p style={{ paddingBottom: 20, color: 'var(--bp-stone-600)', fontSize: 15, lineHeight: 1.65 }}>{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── GALLERY PREVIEW ── */}
+      <section style={{ background: 'var(--bp-stone-100)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
             <div>
-              <Eyebrow index="07 / 09" label="On the job · Real photos" />
+              <Eyebrow index="07 / 08" label="On the job · Real photos" />
               <h2 style={{ marginTop: 20 }}>Honest work. Including the messy bits.</h2>
             </div>
             <Link href="/gallery" className="bp-btn bp-btn--ghost">
@@ -431,6 +511,16 @@ export default function HomePage() {
       </section>
 
       <SiteFooter />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: FAQS.map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }) }} />
     </>
   );
 }
