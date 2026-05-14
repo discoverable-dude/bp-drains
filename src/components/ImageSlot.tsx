@@ -46,7 +46,7 @@ export default function ImageSlot({ label, ratio, height, dark, style, accent }:
           letterSpacing: '0.1em',
           textTransform: 'uppercase',
           padding: '6px 10px',
-          borderRadius: 2,
+          borderRadius: 6,
           textAlign: 'center',
           lineHeight: 1.3,
           maxWidth: '80%',

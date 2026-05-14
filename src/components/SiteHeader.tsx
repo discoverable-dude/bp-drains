@@ -29,7 +29,7 @@ const dropPanelStyle: React.CSSProperties = {
   background: '#fff',
   border: '1px solid var(--bp-line-strong)',
   boxShadow: '0 8px 24px rgba(0,0,0,0.10)',
-  borderRadius: 2,
+  borderRadius: 6,
   minWidth: 200,
   zIndex: 200,
   padding: '8px 0',

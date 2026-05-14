@@ -62,10 +62,10 @@ body { height: 100%; }
   --bp-container: 1280px;
   --bp-gutter:    48px;
 
-  /* Radii — tight for industrial feel */
-  --bp-r-1: 2px;
-  --bp-r-2: 4px;
-  --bp-r-3: 8px;
+  /* Radii */
+  --bp-r-1: 6px;
+  --bp-r-2: 8px;
+  --bp-r-3: 12px;
   --bp-r-pill: 999px;
 
   /* Shadows */
@@ -196,7 +196,7 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--bp-r-2);
 }
 
-.bp-stars { color: var(--bp-ink); letter-spacing: 2px; font-size: 14px; }
+.bp-stars { color: #F59E0B; letter-spacing: 2px; font-size: 14px; }
 
 /* ─── Layout helpers ─────────────────────────────────────────────────── */
 .hero-split    { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: end; }

@@ -38,7 +38,7 @@ function BadgeTag({ children, red }: { children: React.ReactNode; red?: boolean 
     <span style={{
       position: 'absolute', top: 10, left: 10,
       fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,
-      letterSpacing: '0.12em', padding: '5px 9px', borderRadius: 2,
+      letterSpacing: '0.12em', padding: '5px 9px', borderRadius: 6,
       background: red ? 'var(--bp-red)' : '#fff',
       color: red ? '#fff' : 'var(--bp-ink)',
     }}>{children}</span>
@@ -48,7 +48,7 @@ function BadgeTag({ children, red }: { children: React.ReactNode; red?: boolean 
 function FilterChip({ label, active }: { label: string; active?: boolean }) {
   return (
     <button style={{
-      padding: '8px 12px', borderRadius: 2,
+      padding: '8px 12px', borderRadius: 6,
       border: `1px solid ${active ? 'var(--bp-ink)' : 'var(--bp-line)'}`,
       background: active ? 'var(--bp-ink)' : 'transparent',
       color: active ? '#fff' : 'var(--bp-ink)',
@@ -135,7 +135,7 @@ export default function GalleryPage() {
                   position: 'absolute', bottom: 10, right: 10,
                   fontFamily: 'var(--bp-font-mono)', fontSize: 10, letterSpacing: '0.08em',
                   background: 'rgba(14,13,11,0.85)', color: '#fff',
-                  padding: '4px 8px', borderRadius: 2,
+                  padding: '4px 8px', borderRadius: 6,
                 }}>{g.area}</span>
               </div>
             ))}

@@ -16,7 +16,7 @@ export default function UtilityBar() {
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
           background: 'var(--bp-red)', color: '#fff',
-          padding: '4px 10px', borderRadius: 2,
+          padding: '4px 10px', borderRadius: 6,
           fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em',
           textTransform: 'uppercase', fontWeight: 600,
         }}>

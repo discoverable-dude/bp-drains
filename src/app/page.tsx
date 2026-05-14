@@ -130,7 +130,7 @@ export default function HomePage() {
                   position: 'absolute', top: 20, left: 20,
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)',
-                  padding: '8px 12px', borderRadius: 2,
+                  padding: '8px 12px', borderRadius: 6,
                   fontFamily: 'var(--bp-font-mono)', fontSize: 11, letterSpacing: '0.12em',
                   textTransform: 'uppercase', fontWeight: 600, color: '#fff',
                 }}>
@@ -246,8 +246,8 @@ export default function HomePage() {
                   <div className="bp-mono" style={{ marginTop: 6 }}>{s.sub}</div>
                 </div>
                 <p style={{ color: 'var(--bp-stone-600)', fontSize: 14, lineHeight: 1.5, flex: 1 }}>{s.desc}</p>
-                <Link href={`/services/${s.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600 }}>
-                  Learn more <Icon name="arrow" size={14} />
+                <Link href={`/services/${s.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: 'var(--bp-red)' }}>
+                  Learn more <Icon name="arrow" size={14} stroke="var(--bp-red)" />
                 </Link>
               </div>
             ))}
@@ -348,11 +348,11 @@ export default function HomePage() {
             ].map(p => (
               <div key={p.n} style={{ paddingRight: 24 }}>
                 <div style={{
-                  width: 32, height: 32, borderRadius: '50%',
-                  background: 'var(--bp-ink)', color: '#fff',
+                  width: 36, height: 36, borderRadius: '50%',
+                  background: 'var(--bp-red)', color: '#fff',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'var(--bp-font-mono)', fontSize: 12, fontWeight: 600,
-                  position: 'relative', zIndex: 1,
+                  fontFamily: 'var(--bp-font-mono)', fontSize: 13, fontWeight: 700,
+                  position: 'relative', zIndex: 1, flexShrink: 0,
                 }}>{p.n}</div>
                 <h4 style={{ marginTop: 24 }}>{p.t}</h4>
                 <p style={{ marginTop: 12, color: 'var(--bp-stone-600)', fontSize: 15, lineHeight: 1.5 }}>{p.d}</p>
@@ -368,7 +368,7 @@ export default function HomePage() {
           <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
             <div>
               <Eyebrow index="06 / 09" label="What our customers say" />
-              <h2 style={{ marginTop: 20 }}>312 reviews. 4.9 average. <br />Read them all.</h2>
+              <h2 style={{ marginTop: 20 }}>312 reviews. <span style={{ color: 'var(--bp-red)' }}>4.9</span> average.<br />Read them all.</h2>
             </div>
             <Link href="/testimonials" className="bp-btn bp-btn--ghost">
               All testimonials <Icon name="arrow" size={14} />
@@ -382,7 +382,7 @@ export default function HomePage() {
                   <span style={{
                     fontFamily: 'var(--bp-font-mono)', fontSize: 11, fontWeight: 600,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
-                    background: 'var(--bp-stone-100)', padding: '4px 8px', borderRadius: 2,
+                    background: 'var(--bp-stone-100)', padding: '4px 8px', borderRadius: 6,
                   }}>{t.src}</span>
                   <span style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 11, color: 'var(--bp-fg-faint)' }}>{t.date}</span>
                 </div>
@@ -418,7 +418,7 @@ export default function HomePage() {
                 <span style={{
                   position: 'absolute', top: 10, left: 10,
                   fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,
-                  letterSpacing: '0.12em', padding: '4px 8px', borderRadius: 2,
+                  letterSpacing: '0.12em', padding: '4px 8px', borderRadius: 6,
                   background: '#fff', color: 'var(--bp-ink)', zIndex: 1,
                 }}>{it.tag}</span>
               </div>
@@ -448,7 +448,7 @@ export default function HomePage() {
           </div>
           <a href={BP_PHONE_TEL} style={{
             background: '#fff', color: 'var(--bp-ink)',
-            padding: '28px 36px', borderRadius: 2,
+            padding: '28px 36px', borderRadius: 6,
             display: 'inline-flex', alignItems: 'center', gap: 16,
             fontFamily: 'var(--bp-font-display)', fontWeight: 800,
             fontSize: 'clamp(20px, 2.5vw, 32px)',

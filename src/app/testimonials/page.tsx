@@ -38,7 +38,7 @@ const FILTER_RATINGS  = ['All', '5★', '4★', '3★ or below'];
 function FilterChip({ label, active }: { label: string; active?: boolean }) {
   return (
     <button style={{
-      padding: '8px 12px', borderRadius: 2,
+      padding: '8px 12px', borderRadius: 6,
       border: `1px solid ${active ? 'var(--bp-ink)' : 'var(--bp-line)'}`,
       background: active ? 'var(--bp-ink)' : 'transparent',
       color: active ? '#fff' : 'var(--bp-ink)',
@@ -123,7 +123,7 @@ export default function TestimonialsPage() {
           <h2 style={{ marginTop: 16, marginBottom: 32 }}>The full story</h2>
 
           <div className="two-col-wide" style={{ gap: 24 }}>
-            <div style={{ background: 'var(--bp-ink)', color: '#fff', padding: 48, borderRadius: 2, position: 'relative' }}>
+            <div style={{ background: 'var(--bp-ink)', color: '#fff', padding: 48, borderRadius: 6, position: 'relative' }}>
               <span style={{ position: 'absolute', top: 24, right: 32, fontFamily: 'var(--bp-font-display)', fontWeight: 900, fontSize: 96, lineHeight: 0.8, opacity: 0.15 }}>&ldquo;</span>
               <Eyebrow index="GOOGLE" label="5 stars · 04 Apr 2026" onDark />
               <p style={{ fontSize: 24, lineHeight: 1.45, marginTop: 24, color: '#fff', maxWidth: 620 }}>
@@ -180,7 +180,7 @@ export default function TestimonialsPage() {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span style={{
                     fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,
-                    letterSpacing: '0.12em', padding: '4px 8px', borderRadius: 2,
+                    letterSpacing: '0.12em', padding: '4px 8px', borderRadius: 6,
                     background: 'var(--bp-stone-100)', color: 'var(--bp-ink)',
                   }}>{r.src}</span>
                   <span className="bp-mono">{r.date}</span>
@@ -199,7 +199,7 @@ export default function TestimonialsPage() {
                   </div>
                   <span style={{
                     fontFamily: 'var(--bp-font-mono)', fontSize: 10, fontWeight: 600,
-                    letterSpacing: '0.1em', padding: '4px 7px', borderRadius: 2,
+                    letterSpacing: '0.1em', padding: '4px 7px', borderRadius: 6,
                     border: '1px solid var(--bp-line-strong)',
                   }}>{r.svc}</span>
                 </div>

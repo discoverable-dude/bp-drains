@@ -151,7 +151,7 @@ export default async function ServicePage({ params }: { params: Params }) {
                 style={{
                   padding: '12px 18px', background: 'var(--bp-stone-100)',
                   border: '1px solid var(--bp-line-strong)',
-                  borderRadius: 2, fontSize: 14, fontWeight: 500,
+                  borderRadius: 6, fontSize: 14, fontWeight: 500,
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                 }}
               >
