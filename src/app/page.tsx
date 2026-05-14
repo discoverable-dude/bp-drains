@@ -69,9 +69,9 @@ export default function HomePage() {
             <div style={{ paddingBottom: 64, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: 'var(--bp-white)', border: '1px solid var(--bp-line-strong)',
-                borderRadius: 'var(--bp-r-pill)', padding: '6px 14px',
-                fontSize: 13, fontWeight: 500, color: 'var(--bp-stone-500)',
+                fontFamily: 'var(--bp-font-mono)', fontSize: 12,
+                letterSpacing: '0.1em', textTransform: 'uppercase',
+                color: 'var(--bp-stone-500)',
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--bp-ink)', display: 'inline-block', flexShrink: 0 }} />
                 Family run · Since 2009
@@ -94,7 +94,7 @@ export default function HomePage() {
                 color: 'var(--bp-stone-600)', maxWidth: 520,
               }}>
                 Six vans, six engineers across Kent and the South East.{' '}
-                <strong style={{ color: 'var(--bp-ink)' }}>We turn up, fix it properly, tell you the cost — no surprises.</strong>
+                <strong style={{ color: 'var(--bp-ink)' }}>We turn up when we say, fix it properly, tell you the cost — no surprises.</strong>
               </p>
 
               <div style={{ marginTop: 'var(--bp-stack-gap)', display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -111,7 +111,7 @@ export default function HomePage() {
               <div style={{ marginTop: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span className="bp-stars" style={{ fontSize: 18 }}>★★★★★</span>
                 <span style={{ fontFamily: 'var(--bp-font-mono)', fontSize: 13, color: 'var(--bp-stone-600)' }}>
-                  4.9 · 218 Google reviews
+                  4.9 · 312 Google reviews
                 </span>
               </div>
             </div>
@@ -166,7 +166,7 @@ export default function HomePage() {
               {[
                 { v: '47 min', l: 'Avg on-site, Kent' },
                 { v: '6',      l: 'Vans on the road' },
-                { v: '4.9★',   l: '218 Google reviews' },
+                { v: '4.9★',   l: '312 Google reviews' },
                 { v: '24/7',   l: 'Emergency callout' },
               ].map(s => (
                 <div key={s.l} style={{ padding: '24px var(--bp-gutter)', borderRight: '1px solid var(--bp-line)' }}>
