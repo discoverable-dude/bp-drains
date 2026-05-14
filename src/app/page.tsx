@@ -307,7 +307,7 @@ export default function HomePage() {
       <section style={{ background: 'var(--bp-white)', padding: 'var(--bp-section-y) var(--bp-gutter)' }}>
         <div style={{ maxWidth: 'var(--bp-container)', margin: '0 auto' }}>
           <Eyebrow index="05 / 09" label="How we work" />
-          <h2 style={{ marginTop: 20, maxWidth: 760 }}>No surprise costs. No &ldquo;we&apos;ll need to come back&rdquo;. <br />Just four steps.</h2>
+          <h2 style={{ marginTop: 20, maxWidth: 560 }}>From your call<br />to cleared drain.</h2>
 
           <div className="process-grid" style={{ marginTop: 'var(--bp-heading-gap)' }}>
             {[
